@@ -1,6 +1,6 @@
 {
-  "name": "Step3ofTexasQR",
-  "description": "Step 3 of Texas Quarterly Report PDD",
+  "name": "Part 4",
+  "description": "Copying raw data files from daily processes\r\n",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.8.0-preview]",
