@@ -1,0 +1,4 @@
+{
+	"fileExplorerPath": "C:\\WINDOWS\\explorer.exe",
+	"path3_1": "C:\\Users\\S\\Documents\\UiPath\\Robotic_Process_Automation\\MM_Reports\\"
+}
