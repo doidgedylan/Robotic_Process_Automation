@@ -1,0 +1,5 @@
+Test Email:
+Username: rbot2064@gmail.com
+Password: uipath123
+Birthday: January 1st, 1967
+Gender: Male

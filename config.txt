@@ -1,4 +1,6 @@
 {
 	"fileExplorerPath": "C:\\WINDOWS\\explorer.exe",
-	"path3_1": "\\MM_Reports\\"
+	"path3_1": "\\MM_Reports\\",
+	"password": "uipath123",
+	"strMail": "rbot2064@gmail.com"
 }
