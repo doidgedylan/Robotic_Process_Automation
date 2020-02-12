@@ -1794,15 +1794,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\karth\\.nuget\\packages\\": {}
+    "C:\\Users\\S\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Step3ofTexasQR",
       "projectName": "Step3ofTexasQR",
-      "projectPath": "C:\\Users\\karth\\OneDrive\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
-      "packagesPath": "C:\\Users\\karth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\karth\\OneDrive\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
+      "projectPath": "C:\\Users\\S\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
+      "packagesPath": "C:\\Users\\S\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\S\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
     },
     "frameworks": {
       "net461": {
