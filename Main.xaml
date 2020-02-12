@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="523.6,1604.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="546,5132.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -22,6 +22,8 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -42,32 +44,130 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Copy Raw Data Files" sap:VirtualizedContainerService.HintSize="503.6,1504.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Copy Raw Data Files" sap:VirtualizedContainerService.HintSize="526,5032.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="fullPath" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="quarterFiles" />
       <Variable x:TypeArguments="x:String" Name="fileName" />
-      <Variable x:TypeArguments="x:Int32" Default="0" Name="i" />
-      <Variable x:TypeArguments="x:String" Default="02" Name="month" />
-      <Variable x:TypeArguments="x:String" Default="2020" Name="year" />
-      <Variable x:TypeArguments="x:String" Default="2" Name="quarter" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="i" />
+      <Variable x:TypeArguments="x:String" Name="month" />
+      <Variable x:TypeArguments="x:String" Name="year" />
+      <Variable x:TypeArguments="x:String" Name="quarter" />
+      <Variable x:TypeArguments="x:String" Name="JsonText" />
+      <Variable x:TypeArguments="njl:JObject" Name="JSONObject" />
+      <Variable x:TypeArguments="x:String" Name="fileExplorerPath" />
+      <Variable x:TypeArguments="x:String" Name="path4_1_1" />
+      <Variable x:TypeArguments="x:String" Name="path4_1_2" />
+      <Variable x:TypeArguments="x:String" Name="path4_1_3" />
+      <Variable x:TypeArguments="x:String" Name="path4_1_4" />
+      <Variable x:TypeArguments="x:String" Name="path4_2_1" />
+      <Variable x:TypeArguments="x:String" Name="path4_2_2" />
+      <Variable x:TypeArguments="x:String" Name="nextQuarter" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot;C:\Users\Dylan\Desktop\AEPMockData\&quot; + month + &quot; Support Data\&quot; + year]" DisplayName="Open File Explorer" FileName="C:\Windows\explorer.exe" sap:VirtualizedContainerService.HintSize="461.6,87.2" sap2010:WorkflowViewState.IdRef="StartProcess_1">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:StartProcess>
-    <Assign sap:VirtualizedContainerService.HintSize="461.6,59.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <ui:ReadTextFile Content="[JsonText]" DisplayName="Read Text File" FileName="config.txt" sap:VirtualizedContainerService.HintSize="484,85.6" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[JSONObject]" JsonString="[JsonText]" />
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[fileExplorerPath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("fileExplorerPath").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path4_1_1]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("path4_1_1").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path4_1_2]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("path4_1_2").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[month]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("month").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[year]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("year").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[quarter]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("quarter").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[quarter.Equals(&quot;4&quot;)]" sap:VirtualizedContainerService.HintSize="569.2,210" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Assign sap:VirtualizedContainerService.HintSize="262.4,59.6" sap2010:WorkflowViewState.IdRef="Assign_25">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[nextQuarter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">1</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="262.4,59.6" sap2010:WorkflowViewState.IdRef="Assign_24">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[nextQuarter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[(Int32.Parse(JSONObject.GetValue("quarter").ToString) + 1).ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path4_1_3]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("path4_1_3").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path4_1_4]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("path4_1_4").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[quarterFiles]</OutArgument>
       </Assign.To>
@@ -75,15 +175,27 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="461.6,59.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="484,85.6" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[Environment.CurrentDirectory + path4_1_1 + month + path4_1_2 + year]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="484,85.6" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[Environment.CurrentDirectory + &quot;\&quot; + month + path4_1_3 + month + &quot;_&quot; + year + &quot;_&quot; + quarter + path4_1_4]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="484,85.6" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[Environment.CurrentDirectory + path4_1_1 + month + path4_2_1 + year]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="484,85.6" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[Environment.CurrentDirectory + &quot;\&quot; + month + path4_1_3 + month + &quot;_&quot; + year + &quot;_&quot; + quarter + path4_2_2]" />
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[fullPath]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("C:\Users\Dylan\Desktop\AEPMockData\" + month + " Support Data\" + year)]</InArgument>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(Environment.CurrentDirectory + path4_1_1 + month + path4_1_2 + year)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="461.6,460.4" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[fullPath]">
+    <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[Environment.CurrentDirectory + path4_1_1 + month + path4_1_2 + year]" DisplayName="Open File Explorer" FileName="[fileExplorerPath]" sap:VirtualizedContainerService.HintSize="484,87.2" sap2010:WorkflowViewState.IdRef="StartProcess_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:StartProcess>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="484,460.4" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[fullPath]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -116,7 +228,7 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="461.6,585.6" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Directory.GetFiles(&quot;C:\Users\Dylan\Desktop\AEPMockData\&quot; + month + &quot; Support Data\&quot; + year)]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="484,586.8" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Directory.GetFiles(Environment.CurrentDirectory + path4_1_1 + month + path4_1_2 + year)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -133,7 +245,7 @@
                 <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[quarterFiles.Item(i)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[quarterFiles.Item(quarterFiles.Count - i)]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign sap:VirtualizedContainerService.HintSize="384,59.6" sap2010:WorkflowViewState.IdRef="Assign_6">
@@ -144,7 +256,121 @@
                 <InArgument x:TypeArguments="x:Int32">[i + 1]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\Dylan\Desktop\&quot; + month +&quot; Reports\&quot; + month + &quot;_&quot; + year + &quot;_&quot; + quarter + &quot;_QTR\MACSS Expected Reads\Daily file\&quot; + fileName]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,161.2" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[file.ToString]" />
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[Environment.CurrentDirectory + &quot;\&quot; + month + path4_1_3 + month + &quot;_&quot; + year + &quot;_&quot; + quarter + path4_1_4 + &quot;\&quot; + fileName]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,161.2" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[file.ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_23">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[quarterFiles]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path4_2_1]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("path4_2_1").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[path4_2_2]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[JSONObject.GetValue("path4_2_2").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[Environment.CurrentDirectory + path4_1_1 + month + path4_2_1 + year]" DisplayName="Open File Explorer" FileName="[fileExplorerPath]" sap:VirtualizedContainerService.HintSize="484,87.2" sap2010:WorkflowViewState.IdRef="StartProcess_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:StartProcess>
+    <Assign sap:VirtualizedContainerService.HintSize="484,59.6" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[fullPath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(Environment.CurrentDirectory + path4_1_1 + month + path4_2_1 + year)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="484,460.4" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[fullPath]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.4,326" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="fileName" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262.4,59.6" sap2010:WorkflowViewState.IdRef="Assign_18">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Path.GetFileName(file).ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="262.4,134.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Add">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="scg:List(x:String)">[quarterFiles]</InArgument>
+              </InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="x:String">[fileName]</InArgument>
+            </InvokeMethod>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="484,586.8" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[Directory.GetFiles(Environment.CurrentDirectory + path4_1_1 + month + path4_2_1 + year)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="file" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,452.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="384,59.6" sap2010:WorkflowViewState.IdRef="Assign_19">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[quarterFiles.Item(quarterFiles.Count - i)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="384,59.6" sap2010:WorkflowViewState.IdRef="Assign_20">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[i + 1]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[Environment.CurrentDirectory + &quot;\&quot; + month + path4_1_3 + month + &quot;_&quot; + year + &quot;_&quot; + quarter + path4_2_2 + &quot;\&quot; + fileName]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,161.2" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[file.ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>

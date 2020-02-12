@@ -1,0 +1,12 @@
+{
+	"fileExplorerPath": "C:\\Windows\\explorer.exe",
+	"month" : "02",
+	"year" : "2020",
+	"quarter" : 1,
+	"path4_1_1": "\\oh0gh009\\Isdmsp\\Universal\\CCS\\",
+	"path4_1_2": " Support Data\\MDCH Expected Values\\",
+	"path4_1_3": " Reports\\",
+	"path4_1_4": "_QTR\\MACSS Expected Reads\\Daily File",
+	"path4_2_1": " Support Market Metrics 867\\",
+	"path4_2_2": "_QTR\\867_03_daily"
+}
