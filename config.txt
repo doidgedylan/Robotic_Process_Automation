@@ -2,6 +2,6 @@
   "numOfDays": "5",
   "month": "January", 
   "year": "2020",
-  "filepath": "\\FOLDER\\Mainfolder\\Daily_Change_Monitoring\\"
+  "filepath": “\\FOLDER\\Mainfolder\\Daily_Change_Monitoring\\"
 }
 
