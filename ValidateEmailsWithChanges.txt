@@ -1,0 +1,2 @@
+"\\FOLDER\FOLDER\FOLDER\" + selection3Date(1).ToString + CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(selection3Date(0)).substring(0,3) + selection3Date(2).ToString + "\" + selection3Date(0).ToString + "-" + selection3Date(1).ToString + "-" + selection3Date(2).ToString + "\*"
+selection3Date(0).ToString + "-" + selection3Date(1).ToString + "-" + selection3Date(2).ToString
