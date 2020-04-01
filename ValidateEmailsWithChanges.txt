@@ -3,3 +3,6 @@
 3) "0" + selection2Date(0).ToString + "-" + selection2Date(1).ToString + "-" + selection2Date(2).ToString
 4) "0" + selection1Date(0).ToString + "-" + "0" + selection1Date(1).ToString + "-" + selection1Date(2).ToString
 5) dTable.AsEnumerable().Select(Function (a) a.Field(of string)(col.ToString).ToArray()
+6) row("Date of Delta").ToString.Equals(selection1Month.ToString + "\" + selection1Day.ToString + "\" + selection1Year.ToString )
+7) {selection1Month.ToString + "/" + selection1Day.ToString + "/" + selection1Year.ToString, changesSetFromSO}
+8) row("Date of Delta").ToString.Substring(0,10).Equals(changesTableFromSO.Rows(0).ToString)
