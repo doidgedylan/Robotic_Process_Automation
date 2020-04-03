@@ -5,4 +5,5 @@
 5) dTable.AsEnumerable().Select(Function (a) a.Field(of string)(col.ToString).ToArray()
 6) row("Date of Delta").ToString.Equals(selection1Month.ToString + "\" + selection1Day.ToString + "\" + selection1Year.ToString )
 7) {selection1Month.ToString + "/" + selection1Day.ToString + "/" + selection1Year.ToString, changesSetFromSO}
-8) row("Date of Delta").ToString.Substring(0,10).Equals(changesTableFromSO.Rows(0).ToString)
+8) row("Date of Delta").ToString.Substring(0,10).Equals(originalSelection1Date.ToString)
+9) row(col.ToString).ToString.Substring(0, 7).Equals("CHANGES")
