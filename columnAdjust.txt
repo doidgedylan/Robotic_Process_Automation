@@ -1,0 +1,4 @@
+Sub ColumnWidth()
+Columns("D:D").EntireColumn.AutoFit
+Columns("E:E").EntireColumn.AutoFit
+End Sub
