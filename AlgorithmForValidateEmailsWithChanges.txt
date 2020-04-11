@@ -1,0 +1,8 @@
+Sequence of Events for ValidateEmailsWithChanges.xaml:
+1) Get Dates in SampleOutputFile
+	NOTE: There can anywhere from 0-N dates, so the next rest steps should happen for each date, 
+	a) Convert date from M/D/YYYY (or MM/D/YYYY or M/DD/YYYY or MM/DD/YYYY) format to MM-DD-YYYY format and assign that value to a variable	
+	b) Get "File Name on Delta Report" in Data Tab of SampleOutputFile and FindingsTracker based on Given Date (Should Happen in Parallel)
+	c) Check if Set of File Names from Data Tab of SampleOutputFile and Set of File Names from FindingsTracker Match
+		i) If They Match, Output the File Names for the Given Date to the Output File
+		ii) If They Don't Match, Log a Message that the File Names Don't Match 
