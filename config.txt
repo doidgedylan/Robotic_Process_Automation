@@ -1,7 +1,8 @@
 {
-  "numOfDays": "5",
+  "numOfDays": "2",
   "month": "January", 
   "year": "2020",
-  "filepath": "\\FOLDER\\Mainfolder\\Daily_Change_Monitoring\\"
+  "filepath": "\\FOLDER\\Mainfolder\\Daily_Change_Monitoring\\",
+  "outputExcel" : "\\outputExcel.xlsx"
 }
 

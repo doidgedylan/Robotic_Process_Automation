@@ -1013,6 +1013,16 @@
             "locale": "zh-CN"
           }
         }
+      },
+      "UiPathTeam.Excel.Extensions.Activities/1.0.7107.42453": {
+        "type": "package",
+        "compile": {
+          "lib/net451/_._": {}
+        },
+        "runtime": {
+          "lib/net451/Excel.Activites.Design.dll": {},
+          "lib/net451/Excel.Activities.dll": {}
+        }
       }
     }
   },
@@ -1922,6 +1932,18 @@
         "uipath.webapi.activities.1.4.4.nupkg.sha512",
         "uipath.webapi.activities.nuspec"
       ]
+    },
+    "UiPathTeam.Excel.Extensions.Activities/1.0.7107.42453": {
+      "sha512": "OAo8pQRq8FMxUFM43Bzv++RTm1IqcVNgjvHoeb9EzVKpUYem7WNxUv88tSZKrAc3Y1ukX/KbqEtdOaqXZVnaUQ==",
+      "type": "package",
+      "path": "uipathteam.excel.extensions.activities/1.0.7107.42453",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net451/Excel.Activites.Design.dll",
+        "lib/net451/Excel.Activities.dll",
+        "uipathteam.excel.extensions.activities.1.0.7107.42453.nupkg.sha512",
+        "uipathteam.excel.extensions.activities.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1931,7 +1953,8 @@
       "UiPath.Mail.Activities >= 1.8.3-beta.850998 <= 1.8.3-beta.850998",
       "UiPath.System.Activities >= 20.4.0-beta.850545 <= 20.4.0-beta.850545",
       "UiPath.UIAutomation.Activities >= 20.4.0-beta.853586 <= 20.4.0-beta.853586",
-      "UiPath.WebAPI.Activities >= 1.4.4 <= 1.4.4"
+      "UiPath.WebAPI.Activities >= 1.4.4 <= 1.4.4",
+      "UiPathTeam.Excel.Extensions.Activities >= 1.0.7107.42453 <= 1.0.7107.42453"
     ]
   },
   "packageFolders": {
@@ -1972,18 +1995,14 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[1.4.4, 1.4.4]"
+          },
+          "UiPathTeam.Excel.Extensions.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.7107.42453, 1.0.7107.42453]"
           }
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3034",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Threading.Tasks.Dataflow 4.10.0' from source 'https://www.myget.org/F/workflow/': This package is signed but not by a trusted signer.",
-      "libraryId": "System.Threading.Tasks.Dataflow"
-    }
-  ]
+  }
 }

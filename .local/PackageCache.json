@@ -19,7 +19,7 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipath.excel.activities/2.8.3-beta.851189\\lib/net461/UiPath.Excel.Activities.dll",
         "C:\\Users\\karth\\.nuget\\packages\\uipath.excel.activities/2.8.3-beta.851189\\lib/net461/UiPath.Excel.dll"
       ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.excel.activities/2.8.3-beta.851189"
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.excel.activities\\2.8.3-beta.851189"
     },
     {
       "Package": {
@@ -39,7 +39,7 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipath.mail.activities/1.8.3-beta.850998\\lib/net461/UiPath.Mail.Activities.dll",
         "C:\\Users\\karth\\.nuget\\packages\\uipath.mail.activities/1.8.3-beta.850998\\lib/net461/UiPath.Mail.dll"
       ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.mail.activities/1.8.3-beta.850998"
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.mail.activities\\1.8.3-beta.850998"
     },
     {
       "Package": {
@@ -64,7 +64,7 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipath.system.activities/20.4.0-beta.850545\\lib/net461/UiPath.System.Activities.Design.dll",
         "C:\\Users\\karth\\.nuget\\packages\\uipath.system.activities/20.4.0-beta.850545\\lib/net461/UiPath.System.Activities.dll"
       ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.system.activities/20.4.0-beta.850545"
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.system.activities\\20.4.0-beta.850545"
     },
     {
       "Package": {
@@ -113,7 +113,7 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipath.vision/2.0.3-beta.853545\\lib/net461/UiPath.Vision.Tesseract.dll",
         "C:\\Users\\karth\\.nuget\\packages\\uipath.vision/2.0.3-beta.853545\\lib/net461/UiPath.Vision.dll"
       ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.uiautomation.activities/20.4.0-beta.853586"
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.uiautomation.activities\\20.4.0-beta.853586"
     },
     {
       "Package": {
@@ -128,7 +128,18 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipath.webapi.activities/1.4.4\\lib/net452/UiPath.Web.Activities.dll",
         "C:\\Users\\karth\\.nuget\\packages\\uipath.webapi.activities/1.4.4\\lib/net452/UiPath.Web.dll"
       ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.webapi.activities/1.4.4"
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.webapi.activities\\1.4.4"
+    },
+    {
+      "Package": {
+        "Id": "UiPathTeam.Excel.Extensions.Activities",
+        "Version": "1.0.7107.42453"
+      },
+      "Assemblies": [
+        "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities/1.0.7107.42453\\lib/net451/Excel.Activites.Design.dll",
+        "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities/1.0.7107.42453\\lib/net451/Excel.Activities.dll"
+      ],
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities\\1.0.7107.42453"
     }
   ],
   "Conflicts": [],
@@ -442,6 +453,11 @@
           "Item2": "[106.3.1, )"
         }
       ]
+    },
+    "UiPathTeam.Excel.Extensions.Activities": {
+      "Id": "UiPathTeam.Excel.Extensions.Activities",
+      "Version": "1.0.7107.42453",
+      "Dependencies": []
     }
   },
   "AllPackages": [
@@ -790,6 +806,17 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipath.webapi.activities\\1.4.4\\lib\\net452\\UiPath.Web.dll"
       ],
       "Path": "C:\\Users\\karth\\.nuget\\packages\\uipath.webapi.activities\\1.4.4"
+    },
+    {
+      "Package": {
+        "Id": "UiPathTeam.Excel.Extensions.Activities",
+        "Version": "1.0.7107.42453"
+      },
+      "Assemblies": [
+        "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities\\1.0.7107.42453\\lib\\net451\\Excel.Activites.Design.dll",
+        "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities\\1.0.7107.42453\\lib\\net451\\Excel.Activities.dll"
+      ],
+      "Path": "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities\\1.0.7107.42453"
     }
   ]
 }

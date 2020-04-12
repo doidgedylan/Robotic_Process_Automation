@@ -1,13 +1,14 @@
 {
   "name": "Robotic_Process_Automation",
   "description": "Blank Process",
-  "main": "ValidateTicketMapping.xaml",
+  "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.8.3-beta.851189]",
     "UiPath.Mail.Activities": "[1.8.3-beta.850998]",
     "UiPath.System.Activities": "[20.4.0-beta.850545]",
     "UiPath.UIAutomation.Activities": "[20.4.0-beta.853586]",
-    "UiPath.WebAPI.Activities": "[1.4.4]"
+    "UiPath.WebAPI.Activities": "[1.4.4]",
+    "UiPathTeam.Excel.Extensions.Activities": "[1.0.7107.42453]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
