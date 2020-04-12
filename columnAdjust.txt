@@ -1,4 +1,3 @@
 Sub ColumnWidth()
-Columns("D:D").EntireColumn.AutoFit
-Columns("E:E").EntireColumn.AutoFit
+Columns("D:E").EntireColumn.AutoFit
 End Sub

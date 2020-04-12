@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1579.33333333333,8364.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1579.33333333333,9146</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -63,15 +63,15 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1589.33333333333,8200" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence sap:VirtualizedContainerService.HintSize="1589.33333333333,8981.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1547.33333333333,8108" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1547.33333333333,8889.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="1508.66666666667,7870" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap:VirtualizedContainerService.HintSize="1508.66666666667,8651.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="jsonText" />
             <Variable x:TypeArguments="njl:JObject" Name="jsonObj" />
@@ -97,7 +97,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="config_shane.txt" sap:VirtualizedContainerService.HintSize="1466.66666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1466.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;------------ ValidateTicketMapping.xaml workflow ------------&quot;]" />
+          <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="config.txt" sap:VirtualizedContainerService.HintSize="1466.66666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
           <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1466.66666666667,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[jsonText]" />
           <ui:MultipleAssign DisplayName="Multiple Assign - Arguments and json variables" sap:VirtualizedContainerService.HintSize="1466.66666666667,220" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
@@ -412,22 +413,27 @@
             </sap:WorkflowViewStateService.ViewState>
             <InArgument x:TypeArguments="x:Int32">1</InArgument>
           </InvokeMethod>
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[uniqueChanges_DT]" DisplayName="For Each Row - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1466.66666666667,1297.33333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_11">
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[uniqueChanges_DT]" DisplayName="For Each Row - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1466.66666666667,1944" sap2010:WorkflowViewState.IdRef="ForEachRow_11">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1416,1144.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1178,1791.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Boolean" Name="conclusionEvidenceLocationExists" />
+                    <Variable x:TypeArguments="x:Boolean" Name="isLocationDirectory" />
+                    <Variable x:TypeArguments="x:Boolean" Name="pathIsInvalid">
+                      <Variable.Default>
+                        <Literal x:TypeArguments="x:Boolean" />
+                      </Variable.Default>
+                    </Variable>
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap2010:Annotation.AnnotationText="This count variable is for displaying the &quot;Selection Date N&quot; column values such that 'N' is replaced with the value of count." DisplayName="Assign - count" sap:VirtualizedContainerService.HintSize="1374,140.666666666667" sap2010:WorkflowViewState.IdRef="Assign_13">
+                  <Assign sap2010:Annotation.AnnotationText="This count variable is for displaying the &quot;Selection Date N&quot; column values such that 'N' is replaced with the value of count." DisplayName="Assign - count" sap:VirtualizedContainerService.HintSize="1136,140.666666666667" sap2010:WorkflowViewState.IdRef="Assign_13">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
                     </Assign.To>
@@ -440,72 +446,116 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
-                  <If sap2010:Annotation.AnnotationText="If the conclusion evidence location ends with &quot;\&quot; then it is a folder, otherwise it is a file" Condition="[row(&quot;Conclusion Evidence Location&quot;).ToString.TrimEnd({&quot; &quot;c}).EndsWith(&quot;\&quot;)]" DisplayName="If - Conclusion location evidence ends with &quot;\&quot;" sap:VirtualizedContainerService.HintSize="1374,872" sap2010:WorkflowViewState.IdRef="If_6">
+                  <TryCatch sap2010:Annotation.AnnotationText="This checks if the conclusion evidence location is a directory or not. If the path given by the &quot;conclusion evidence location&quot; value is not a valid path, then an exception is caught pathIsInvalid is set to True." DisplayName="Try Catch - isLocationDirectory" sap:VirtualizedContainerService.HintSize="1136,362" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <Assign DisplayName="Assign - isLocationDirectory" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_15">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[isLocationDirectory]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">[(File.GetAttributes(row("Conclusion Evidence Location").ToString) And FileAttributes.Directory).Equals(FileAttributes.Directory)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Sequence - pathIsInvalid" sap:VirtualizedContainerService.HintSize="304,151.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - pathIsInvalid" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_16">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Boolean">[pathIsInvalid]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                  <If sap2010:Annotation.AnnotationText="If the path given in the &quot;Conclusion Evidence Location&quot; is not an invalid path, ensure the evidence appears at the location. If the path is invalid, log a message stating that the path is valid.&quot;" Condition="[Not pathIsInvalid]" DisplayName="If - Not pathIsInvalid" sap:VirtualizedContainerService.HintSize="1136,1116.66666666667" sap2010:WorkflowViewState.IdRef="If_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="664,687.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <Sequence DisplayName="Sequence - isLocationDirectory" sap:VirtualizedContainerService.HintSize="756,932" sap2010:WorkflowViewState.IdRef="Sequence_20">
                         <Sequence.Variables>
-                          <Variable x:TypeArguments="x:Boolean" Name="evidenceNameExistsInLocation" />
+                          <Variable x:TypeArguments="x:Boolean" Name="evidenceExistsInLocation" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:PathExists sap2010:Annotation.AnnotationText="Check if the Conclusion Evidence Name value appears at the folder path given by Conclusion Evidence Location." DisplayName="Path Exists - Conclusion Evidence Location + Name" Exists="[evidenceNameExistsInLocation]" sap:VirtualizedContainerService.HintSize="622,152.666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[row(&quot;Conclusion Evidence Location&quot;).ToString + row(&quot;Conclusion Evidence Name&quot;).ToString]" PathType="File">
+                        <If sap2010:Annotation.AnnotationText="If the location is a directory, add the filename from the &quot;Conclusion Evidence Name&quot; column to the Location value. Otherwise, just ensure the file given in the location exists" Condition="[isLocationDirectory]" DisplayName="If - isLocationDirectory" sap:VirtualizedContainerService.HintSize="714,352" sap2010:WorkflowViewState.IdRef="If_9">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                        </ui:PathExists>
-                        <If Condition="[evidenceNameExistsInLocation]" DisplayName="If - evidenceNameExistsInLocation" sap:VirtualizedContainerService.HintSize="622,402.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
                           <If.Then>
-                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Appropriately Mapped Name" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                            <ui:PathExists sap2010:Annotation.AnnotationText="Check if the Conclusion Evidence Name value appears at the folder path given by Conclusion Evidence Location." DisplayName="Path Exists - Conclusion Evidence Location + Name" Exists="[evidenceExistsInLocation]" sap:VirtualizedContainerService.HintSize="334,152.666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[row(&quot;Conclusion Evidence Location&quot;).ToString + row(&quot;Conclusion Evidence Name&quot;).ToString]" PathType="File">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:PathExists>
                           </If.Then>
                           <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="376,248.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <ui:PathExists sap2010:Annotation.AnnotationText="If the Conclusion Evidence Location value includes the file name, check if the file exists at the location." DisplayName="Path Exists - Conclusion Evidence Location" Exists="[evidenceExistsInLocation]" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[row(&quot;Conclusion Evidence Location&quot;).ToString]" PathType="File">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:PathExists>
+                          </If.Else>
+                        </If>
+                        <If sap2010:Annotation.AnnotationText="If the conclusion evidence does appear in the given location, do nothing. If the conclusion evidence does not appear at the given location, log a message." Condition="[evidenceExistsInLocation]" DisplayName="If - evidenceExistsInLocation" sap:VirtualizedContainerService.HintSize="714,386" sap2010:WorkflowViewState.IdRef="If_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,186.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;The Conclusion Evidence Name: &quot; + row(&quot;Conclusion Evidence Name&quot;).ToString + &quot; does not exist in the Conclusion Evidence Location: &quot; + row(&quot;Conclusion Evidence Location&quot;).ToString]" />
-                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Not Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Not Appropriately Mapped Name" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;The file: &quot; + row(&quot;Conclusion Evidence Name&quot;).ToString + &quot; does not appear at &quot; + row(&quot;Conclusion Evidence Location&quot;).ToString + &quot; for the change: &quot;+ row(&quot;File Name on Delta Report&quot;).toString + &quot; made on &quot; + row(&quot;Date of Delta&quot;).ToString]" />
                             </Sequence>
                           </If.Else>
                         </If>
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Appropriately Mapped Name" sap:VirtualizedContainerService.HintSize="714,22" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="664,625.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:PathExists DisplayName="Path Exists" Exists="[conclusionEvidenceLocationExists]" sap:VirtualizedContainerService.HintSize="622,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[row(&quot;Conclusion Evidence Location&quot;).ToString]" PathType="File" />
-                        <If Condition="[conclusionEvidenceLocationExists]" DisplayName="If - conclusionEvidenceLocationExists" sap:VirtualizedContainerService.HintSize="622,402.666666666667" sap2010:WorkflowViewState.IdRef="If_8">
-                          <If.Then>
-                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Appropriately Mapped Location" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
-                          </If.Then>
-                          <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="376,248.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;The Conclusion Evidence Location: &quot; + row(&quot;Conclusion Evidence Location&quot;).ToString + &quot; does not exist in the location specified.&quot;]" />
-                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Not Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Not Appropriately Mapped Location" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
-                            </Sequence>
-                          </If.Else>
-                        </If>
-                      </Sequence>
+                      <ui:LogMessage DisplayName="Log Message - path is invalid" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;The Conclusion Evidence Location path: &quot; + row(&quot;Conclusion Evidence Location&quot;).toString + &quot; for the change: &quot;+ row(&quot;File Name on Delta Report&quot;).toString + &quot; made on &quot; + row(&quot;Date of Delta&quot;).ToString +&quot; is not a valid path.&quot;]" />
                     </If.Else>
                   </If>
                 </Sequence>
