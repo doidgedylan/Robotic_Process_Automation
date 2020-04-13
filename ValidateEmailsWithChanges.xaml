@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2273.6,8093.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2273.6,8354.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -89,7 +89,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="2284,7928.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="2284,8189.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="1" Name="selection1Month" />
       <Variable x:TypeArguments="x:Int32" Default="9" Name="selection1Day" />
@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2242.4,7586.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2242.4,7847.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="ftTable" />
       </TryCatch.Variables>
@@ -126,11 +126,7 @@
             <Variable x:TypeArguments="x:Boolean" Name="isChangeCaptured" />
             <Variable x:TypeArguments="sd:DataTable" Default="[new DataTable]" Name="tempChangesTable" />
             <Variable x:TypeArguments="scg:List(x:String)" Name="changesListFromFT" />
-            <Variable x:TypeArguments="s:String[]" Name="HColumnArray">
-              <Variable.Default>
-                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;&quot;}" />
-              </Variable.Default>
-            </Variable>
+            <Variable x:TypeArguments="s:String[]" Default="[{&quot;&quot;}]" Name="HColumnArray" />
             <Variable x:TypeArguments="sd:DataTable" Name="HColumnDataTable" />
             <Variable x:TypeArguments="sd:DataTable" Name="finalResultTable" />
             <Variable x:TypeArguments="sc:ArrayList" Name="selectedDays" />
@@ -142,6 +138,7 @@
             <Variable x:TypeArguments="x:Int32" Default="0" Name="sectionCounter" />
             <Variable x:TypeArguments="x:Int32" Default="27" Name="sectionLocation" />
             <Variable x:TypeArguments="x:Int32" Default="28" Name="changesLocation" />
+            <Variable x:TypeArguments="x:String" Name="variable1" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -564,8 +561,8 @@
                       </ActivityAction>
                     </ui:ForEach.Body>
                   </ui:ForEach>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1956.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="Info" Message="[&quot;This is the number of changes &quot; + changeCounter.ToString + &quot;-Part 3&quot;]" />
-                  <Sequence DisplayName="Write DataTable to Output File" sap:VirtualizedContainerService.HintSize="1956.8,972" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2087.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="Info" Message="[&quot;This is the number of changes &quot; + changeCounter.ToString + &quot;-Part 3&quot;]" />
+                  <Sequence DisplayName="Write DataTable to Output File" sap:VirtualizedContainerService.HintSize="2087.2,972" sap2010:WorkflowViewState.IdRef="Sequence_30">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -615,7 +612,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="2078.4,163.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="2208.8,163.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -631,14 +628,14 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Sequence sap:VirtualizedContainerService.HintSize="2112,84.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+    <Sequence sap:VirtualizedContainerService.HintSize="2242.4,84.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence sap:VirtualizedContainerService.HintSize="2112,84.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
+    <Sequence sap:VirtualizedContainerService.HintSize="2242.4,84.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
