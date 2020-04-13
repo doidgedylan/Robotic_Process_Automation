@@ -1,0 +1,390 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1396.4,6497.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPathTeam.Excel.Extensions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Excel.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap:VirtualizedContainerService.HintSize="1376.4,6397.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="Exclusions" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="Total" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="Emails" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1334.4,6305.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1296.8,3233.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Findings Tracker.xlsx">
+          <ui:ExcelApplicationScope.Body>
+            <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1262.8,3124" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="firstRowValues" />
+                  <Variable x:TypeArguments="x:Char" Name="referenceTypeColumnLetter" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="referenceTypeColumnValues" />
+                  <Variable x:TypeArguments="x:Int32" Default="0" Name="referenceTypeColumnIndex" />
+                  <Variable x:TypeArguments="x:Int32" Name="evidenceNameColumnIndex" />
+                  <Variable x:TypeArguments="x:Char" Name="evidenceNameColumnLetter" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="evidenceNameColumnValues" />
+                  <Variable x:TypeArguments="x:Int32" Default="0" Name="index" />
+                  <Variable x:TypeArguments="x:Int32" Name="evidenceLocationColumnIndex" />
+                  <Variable x:TypeArguments="x:Char" Name="evidenceLocationColumnLetter" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="evidenceLocationColumnValues" />
+                  <Variable x:TypeArguments="x:Int32" Name="dateOfDeltaColumnIndex" />
+                  <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="dateOfDeltaColumnValues" />
+                  <Variable x:TypeArguments="x:Char" Name="dateOfDeltaColumnLetter" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelReadRow DisplayName="Read Row" sap:VirtualizedContainerService.HintSize="1220.8,59.2" sap2010:WorkflowViewState.IdRef="ExcelReadRow_1" Result="[firstRowValues]" SheetName="FindingsTracker" StartingCell="A1" />
+                <ui:MultipleAssign DisplayName="Assign column letters" sap:VirtualizedContainerService.HintSize="1220.8,316.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[referenceTypeColumnIndex]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[array.IndexOf(firstRowValues.ToArray.Cast(of string).ToArray, "Reference Type")]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[evidenceNameColumnIndex]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[array.IndexOf(firstRowValues.ToArray.Cast(of string).ToArray, "Conclusion Evidence Name")]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[evidenceLocationColumnIndex]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[array.IndexOf(firstRowValues.ToArray.Cast(of string).ToArray, "Conclusion Evidence Location")]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[dateOfDeltaColumnIndex]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[array.IndexOf(firstRowValues.ToArray.Cast(of string).ToArray, "Date of Delta")]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Char">[referenceTypeColumnLetter]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Char">[convert.ToChar(referenceTypeColumnIndex + 65)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Char">[evidenceNameColumnLetter]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Char">[convert.ToChar(evidenceNameColumnIndex + 65)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Char">[evidenceLocationColumnLetter]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Char">[convert.ToChar(evidenceLocationColumnIndex + 65)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Char">[dateOfDeltaColumnLetter]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Char">[convert.ToChar(dateOfDeltaColumnIndex + 65)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+                <ui:ExcelReadColumn DisplayName="Read &quot;Reference Type&quot; column " sap:VirtualizedContainerService.HintSize="1220.8,59.2" sap2010:WorkflowViewState.IdRef="ExcelReadColumn_1" Result="[referenceTypeColumnValues]" SheetName="FindingsTracker" StartingCell="[referenceTypeColumnLetter + &quot;2&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ExcelReadColumn>
+                <ui:ExcelReadColumn DisplayName="Read &quot;Conclusion Evidence Name&quot; column" sap:VirtualizedContainerService.HintSize="1220.8,59.2" sap2010:WorkflowViewState.IdRef="ExcelReadColumn_2" Result="[evidenceNameColumnValues]" SheetName="FindingsTracker" StartingCell="[evidenceNameColumnLetter + &quot;2&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ExcelReadColumn>
+                <ui:ExcelReadColumn DisplayName="Read &quot;Conclusion Evidence Location&quot; column" sap:VirtualizedContainerService.HintSize="1220.8,59.2" sap2010:WorkflowViewState.IdRef="ExcelReadColumn_3" Result="[evidenceNameColumnValues]" SheetName="FindingsTracker" StartingCell="[evidenceLocationColumnLetter + &quot;2&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ExcelReadColumn>
+                <ui:ExcelReadColumn DisplayName="Read &quot;Date of Delta&quot; column" sap:VirtualizedContainerService.HintSize="1220.8,59.2" sap2010:WorkflowViewState.IdRef="ExcelReadColumn_4" Result="[dateOfDeltaColumnValues]" SheetName="FindingsTracker" StartingCell="[dateOfDeltaColumnLetter + &quot;2&quot;]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ExcelReadColumn>
+                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1220.8,319.6" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dateOfDeltaColumnValues]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,185.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93.6" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[item.ToString.Substring(0, 10).Replace(&quot;/&quot;, &quot;-&quot;)]" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each value found in the &quot;Reference Type&quot; column" sap:VirtualizedContainerService.HintSize="1220.8,1720" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[referenceTypeColumnValues]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1185.2,1586" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[item.ToString = &quot;Exclusion&quot;]" DisplayName="If Row Reference Type Equals &quot;Exclusion&quot;" sap:VirtualizedContainerService.HintSize="1143.2,1294.8" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="998.8,1145.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:Boolean" Name="locationMatch" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="956.8,59.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[Exclusions]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[Exclusions + 1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <If Condition="[Path.GetExtension(evidenceNameColumnValues.ToList(index).ToString).Contains(&quot;.msg&quot;)]" DisplayName="If Evidence Name Is an Email" sap:VirtualizedContainerService.HintSize="956.8,953.6" sap2010:WorkflowViewState.IdRef="If_3">
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="712.4,804" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:PathExists DisplayName="Path Exists" Exists="[locationMatch]" sap:VirtualizedContainerService.HintSize="670.4,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[evidenceNameColumnValues.ToList(index).ToString]" PathType="File" />
+                                    <If Condition="[not locationMatch]" sap:VirtualizedContainerService.HintSize="670.4,581.6" sap2010:WorkflowViewState.IdRef="If_5">
+                                      <If.Else>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="526,432" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:PathExists DisplayName="Path Exists" Exists="[locationMatch]" sap:VirtualizedContainerService.HintSize="484,90.4" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[evidenceNameColumnValues.ToList(index).ToString]" PathType="Folder" />
+                                          <If Condition="[not locationMatch]" sap:VirtualizedContainerService.HintSize="484,209.6" sap2010:WorkflowViewState.IdRef="If_6">
+                                            <If.Then>
+                                              <Throw Exception="[new Exception(&quot;File name not found in evidence location&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                                            </If.Then>
+                                          </If>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Throw Exception="[new Exception(&quot;Reference Type is an Exclusion, but Conclusion Evidence Name is not an email&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <Assign DisplayName="Increment total number of rows" sap:VirtualizedContainerService.HintSize="1143.2,59.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[Total]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[Total + 1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="Increment Index" sap:VirtualizedContainerService.HintSize="1143.2,59.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[index + 1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <Assign DisplayName="Calculate number of emails" sap:VirtualizedContainerService.HintSize="1220.8,59.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[Emails]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[Total - Exclusions]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </ui:ExcelApplicationScope.Body>
+        </ui:ExcelApplicationScope>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="si:FileNotFoundException" sap:VirtualizedContainerService.HintSize="1300.4,129.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="si:FileNotFoundException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="si:FileNotFoundException" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Error message" sap:VirtualizedContainerService.HintSize="334,59.2" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Input file not found&quot;]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence sap:VirtualizedContainerService.HintSize="526,2689.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Create output excel file" sap:VirtualizedContainerService.HintSize="484,2258.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" Visible="False" WorkbookPath="Output.xlsx">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,2149.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteCell Cell="C6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="REPORT" Text="With Email" />
+                  <ui:ExcelWriteCell Cell="C7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="REPORT" Text="[convert.ToString(Emails)]" />
+                  <ui:ExcelWriteCell Cell="D6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="REPORT" Text="Exclusions" />
+                  <ui:ExcelWriteCell Cell="D7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="REPORT" Text="[convert.ToString(Exclusions)]" />
+                  <ui:ExcelWriteCell Cell="E6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_14" SheetName="REPORT" Text="Other" />
+                  <ui:ExcelWriteCell Cell="E7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_15" SheetName="REPORT" Text="0" />
+                  <ui:ExcelWriteCell Cell="F6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="REPORT" Text="Total" />
+                  <ui:ExcelWriteCell Cell="F7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="REPORT" Text="[convert.ToString(Total)]" />
+                  <ui:ExcelWriteCell Cell="A7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_16" SheetName="REPORT" Text="Total Changes___" />
+                  <ui:ExcelWriteCell Cell="A1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_17" SheetName="REPORT" Text="5. From the findings tab, identify all line items which do not have a corresponding ServiceNow ticket. For" />
+                  <ui:ExcelWriteCell Cell="A2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_18" SheetName="REPORT" Text="each item, review all supporting conclusion evidence for appropriateness of change occuring without a" />
+                  <ui:ExcelWriteCell Cell="A3" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_19" SheetName="REPORT" Text="ServiceNow ticket (e.g. alternative documentation exists, false positive change, etc.)." />
+                  <ui:ExcelWriteCell Cell="A3" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_20" SheetName="REPORT" Text="ServiceNow ticket (e.g. alternative documentation exists, false positive change, etc.)." />
+                  <ui:ExcelWriteCell Cell="A4" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_21" SheetName="REPORT" Text="a. The ServiceNow ticket names can be found in the 'Conclusion Evidence Name' column located in the Findings Tracker tab." />
+                  <ui:ExcelWriteCell Cell="A5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_22" SheetName="REPORT" Text="b. Access the Remediation and Justification Evidence for any changes at: \\MainFolder\\Remediation_or_Justification Evidence" />
+                  <ui:ExcelWriteCell Cell="A9" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87.2" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_23" SheetName="REPORT" Text="Step 5 Review Sign off ___________" />
+                  <ui:ExcelSetRangeColor Color="[Color.LightGray]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="C6:F6" SheetName="REPORT" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+          </ui:ExcelApplicationScope>
+          <If Condition="[1=0]" sap:VirtualizedContainerService.HintSize="484,298.8" sap2010:WorkflowViewState.IdRef="If_4">
+            <If.Then>
+              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" Body="Message" DisplayName="Email output file" Email="doidgedylan@gmail.com" EnableSSL="True" From="doidgedylan@gmail.com" sap:VirtualizedContainerService.HintSize="334,148.8" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="doidgedylan@gmail.com" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="AEP Output" To="doidge.11@osu.edu">
+                <ui:SendMail.Files>
+                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                    <InArgument x:TypeArguments="x:String">C:\Users\Dylan\Documents\UiPath\Step 5\Output.xlsx</InArgument>
+                  </scg:List>
+                </ui:SendMail.Files>
+              </ui:SendMail>
+            </If.Then>
+          </If>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>
