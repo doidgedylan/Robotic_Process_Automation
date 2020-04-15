@@ -50,6 +50,15 @@
           "lib/DocumentFormat.OpenXml.dll": {}
         }
       },
+      "ExceltoPDFConversionActivities/1.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/ExceltoPDFConversion.dll": {}
+        }
+      },
       "Extended.Wpf.Toolkit/2.8.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1107,6 +1116,18 @@
         "lib/DocumentFormat.OpenXml.dll"
       ]
     },
+    "ExceltoPDFConversionActivities/1.1.6": {
+      "sha512": "1/4+KkaB3ebkBVVPA8oxjLevIVvnU0YjuPCi/2mIowYTK2+hgJCXaHphoKNTjkDlEmYYS8CqEkO+VoNwkNBYfg==",
+      "type": "package",
+      "path": "exceltopdfconversionactivities/1.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "exceltopdfconversionactivities.1.1.6.nupkg.sha512",
+        "exceltopdfconversionactivities.nuspec",
+        "lib/ExceltoPDFConversion.dll"
+      ]
+    },
     "Extended.Wpf.Toolkit/2.8.0": {
       "sha512": "wKjJl4sDyXTVzgiKTBTw8jT0/3OwpEklQuWGe1Nz2HX0joiBeUzIurY2mnERni+8XHwateRcuks6yk/cuR22fA==",
       "type": "package",
@@ -1949,6 +1970,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "ExceltoPDFConversionActivities >= 1.1.6 <= 1.1.6",
       "UiPath.Excel.Activities >= 2.8.3-beta.851189 <= 2.8.3-beta.851189",
       "UiPath.Mail.Activities >= 1.8.3-beta.850998 <= 1.8.3-beta.850998",
       "UiPath.System.Activities >= 20.4.0-beta.850545 <= 20.4.0-beta.850545",
@@ -1958,19 +1980,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dylan\\.nuget\\packages\\": {}
+    "C:\\Users\\karth\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Robotic_Process_Automation",
       "projectName": "Robotic_Process_Automation",
-      "projectPath": "C:\\Users\\Dylan\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
-      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dylan\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
+      "projectPath": "C:\\Users\\karth\\OneDrive\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
+      "packagesPath": "C:\\Users\\karth\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karth\\OneDrive\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "ExceltoPDFConversionActivities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.6, 1.1.6]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -2004,5 +2031,14 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ExceltoPDFConversionActivities 1.1.6' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "ExceltoPDFConversionActivities"
+    }
+  ]
 }
