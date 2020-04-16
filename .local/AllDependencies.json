@@ -2045,15 +2045,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\S\\.nuget\\packages\\": {}
+    "C:\\Users\\natha\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Robotic_Process_Automation",
       "projectName": "Robotic_Process_Automation",
-      "projectPath": "C:\\Users\\S\\Documents\\UiPath_2\\Robotic_Process_Automation\\.local",
-      "packagesPath": "C:\\Users\\S\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\S\\Documents\\UiPath_2\\Robotic_Process_Automation\\.local"
+      "projectPath": "C:\\Users\\natha\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
+      "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\natha\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
     },
     "frameworks": {
       "net461": {
@@ -2101,5 +2101,14 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ExceltoPDFConversionActivities 1.1.6' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "ExceltoPDFConversionActivities"
+    }
+  ]
 }
