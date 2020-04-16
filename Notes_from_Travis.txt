@@ -1,0 +1,2 @@
+1) Logs shouldn't worry anyone
+2) Workbook should be smushed and match the print preview of the Sample Output file

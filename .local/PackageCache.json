@@ -140,16 +140,6 @@
         "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities/1.0.7107.42453\\lib/net451/Excel.Activities.dll"
       ],
       "Path": "C:\\Users\\karth\\.nuget\\packages\\uipathteam.excel.extensions.activities\\1.0.7107.42453"
-    },
-    {
-      "Package": {
-        "Id": "ExceltoPDFConversionActivities",
-        "Version": "1.1.6"
-      },
-      "Assemblies": [
-        "C:\\Users\\karth\\.nuget\\packages\\exceltopdfconversionactivities/1.1.6\\lib/ExceltoPDFConversion.dll"
-      ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\exceltopdfconversionactivities\\1.1.6"
     }
   ],
   "Conflicts": [],
@@ -182,11 +172,6 @@
     "DocumentFormat.OpenXml": {
       "Id": "DocumentFormat.OpenXml",
       "Version": "2.5.0",
-      "Dependencies": []
-    },
-    "ExceltoPDFConversionActivities": {
-      "Id": "ExceltoPDFConversionActivities",
-      "Version": "1.1.6",
       "Dependencies": []
     },
     "Extended.Wpf.Toolkit": {
@@ -525,16 +510,6 @@
         "C:\\Users\\karth\\.nuget\\packages\\documentformat.openxml\\2.5.0\\lib\\DocumentFormat.OpenXml.dll"
       ],
       "Path": "C:\\Users\\karth\\.nuget\\packages\\documentformat.openxml\\2.5.0"
-    },
-    {
-      "Package": {
-        "Id": "ExceltoPDFConversionActivities",
-        "Version": "1.1.6"
-      },
-      "Assemblies": [
-        "C:\\Users\\karth\\.nuget\\packages\\exceltopdfconversionactivities\\1.1.6\\lib\\ExceltoPDFConversion.dll"
-      ],
-      "Path": "C:\\Users\\karth\\.nuget\\packages\\exceltopdfconversionactivities\\1.1.6"
     },
     {
       "Package": {
