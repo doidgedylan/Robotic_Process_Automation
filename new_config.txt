@@ -1,0 +1,10 @@
+{
+  "exceptions" : "\\exceptions.xlsx",	
+  "outputExcel" : "\\outputExcel.xlsx",
+  "server" : "OSU_PC_SHANE",
+  "database" : "test",
+  "dbLogin" : "admin",
+  "dbPassword" : "RPAcapstone",
+  "excelConfig" : "excelConfig.xlsx",
+  "excelConfigSheetName" : "Sheet1"
+}
