@@ -5,6 +5,9 @@
   "database" : "test",
   "dbLogin" : "admin",
   "dbPassword" : "RPAcapstone",
-  "excelConfig" : "excelConfig.xlsx",
-  "excelConfigSheetName" : "Sheet1"
+  "excelConfig" : "\\excelConfig.xlsx",
+  "excelConfigSheetName" : "Sheet1",
+  "businessExceptions": "\\BusinessExceptions.xlsx",
+  "businessExceptionsSheetName" : "Business Exceptions",
+  "systemExceptionsSheetName" : "System Exceptions"
 }
