@@ -1,13 +1,12 @@
-{
-  "exceptions" : "\\exceptions.xlsx",	
-  "outputExcel" : "\\outputExcel.xlsx",
+{	
+  "outputExcel" : "outputExcel.xlsx",
   "server" : "OSU_PC_SHANE",
   "database" : "test",
   "dbLogin" : "admin",
   "dbPassword" : "RPAcapstone",
-  "excelConfig" : "\\excelConfig.xlsx",
+  "excelConfig" : "excelConfig.xlsx",
   "excelConfigSheetName" : "Sheet1",
-  "businessExceptions": "\\BusinessExceptions.xlsx",
+  "exceptions": "Exceptions.xlsx",
   "businessExceptionsSheetName" : "Business Exceptions",
   "systemExceptionsSheetName" : "System Exceptions"
 }

@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1249.33333333333,9969.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1248,9974.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -70,15 +70,15 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1259.33333333333,9804.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence sap:VirtualizedContainerService.HintSize="1258.4,9809.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1217.33333333333,9712.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1216.8,9716.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="ValidateTicketMapping Sequence" sap:VirtualizedContainerService.HintSize="1178.66666666667,9478" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="ValidateTicketMapping Sequence" sap:VirtualizedContainerService.HintSize="1178.4,9486.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="jsonText" />
             <Variable x:TypeArguments="njl:JObject" Name="jsonObj" />
@@ -113,11 +113,11 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1136.66666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;--- ValidateTicketMapping.xaml workflow ---&quot;]" />
-          <ui:BuildDataTable DataTable="[businessExceptions]" DisplayName="Build Data Table - businessExceptions" sap:VirtualizedContainerService.HintSize="1136.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_4" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-          <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="new_config.txt" sap:VirtualizedContainerService.HintSize="1136.66666666667,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1136.66666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[jsonText]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign - Arguments and json variables" sap:VirtualizedContainerService.HintSize="1136.66666666667,281.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1136.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;--- ValidateTicketMapping.xaml workflow ---&quot;]" />
+          <ui:BuildDataTable DataTable="[businessExceptions]" DisplayName="Build Data Table - businessExceptions" sap:VirtualizedContainerService.HintSize="1136.8,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_4" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="new_config.txt" sap:VirtualizedContainerService.HintSize="1136.8,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1136.8,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[jsonText]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign - Arguments and json variables" sap:VirtualizedContainerService.HintSize="1136.8,286.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -125,7 +125,7 @@
                     <OutArgument x:TypeArguments="x:String">[excelConfigPath]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[environment.CurrentDirectory + JsonObj.SelectToken("excelConfig").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[JsonObj.SelectToken("excelConfig").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -149,7 +149,7 @@
                     <OutArgument x:TypeArguments="x:String">[exceptionsExcel]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[environment.CurrentDirectory + JsonObj.SelectToken("exceptions").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[JsonObj.SelectToken("exceptions").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
@@ -173,13 +173,13 @@
                     <OutArgument x:TypeArguments="x:String">[outputExcel]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[environment.CurrentDirectory + JsonObj.SelectToken("outputExcel").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[JsonObj.SelectToken("outputExcel").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[excelConfig_DT]" DisplayName="Read Range - excelConfig" sap:VirtualizedContainerService.HintSize="1136.66666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="[excelConfigSheetName]" WorkbookPath="[excelConfigPath]" />
+          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[excelConfig_DT]" DisplayName="Read Range - excelConfig" sap:VirtualizedContainerService.HintSize="1136.8,88" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="[excelConfigSheetName]" WorkbookPath="[excelConfigPath]" />
           <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[excelConfig_DT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1136.66666666667,407.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_12">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
