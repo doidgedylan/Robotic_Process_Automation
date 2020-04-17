@@ -1,7 +1,5 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="configString" Type="InArgument(x:String)" />
-    <x:Property Name="configJson" Type="InArgument(njl:JObject)" />
     <x:Property Name="numOfDays" Type="InArgument(x:Int32)" />
     <x:Property Name="month" Type="InArgument(x:String)" />
     <x:Property Name="year" Type="InArgument(x:String)" />
@@ -13,11 +11,18 @@
     <x:Property Name="resultTable" Type="InArgument(sd:DataTable)" />
     <x:Property Name="data_header_columnIdentifier" Type="InArgument(scg:List(x:String))" />
     <x:Property Name="data_header_dateIdentifier" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="newConfigString" Type="InArgument(x:String)" />
+    <x:Property Name="exceptions" Type="InArgument(x:String)" />
+    <x:Property Name="newConfigJson" Type="InArgument(njl:JObject)" />
+    <x:Property Name="excelConfigString" Type="InArgument(x:String)" />
+    <x:Property Name="excelConfigJson" Type="InArgument(x:String)" />
+    <x:Property Name="outputExcel" Type="InArgument(x:String)" />
+    <x:Property Name="server" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2273.6,7177.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2273.6,7419.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +95,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="2284,7012.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="2284,7214.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="1" Name="selection1Month" />
       <Variable x:TypeArguments="x:Int32" Default="9" Name="selection1Day" />
@@ -105,12 +110,12 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2242.4,6670.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2242.4,6872" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="ftTable" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="Validate Emails with Changes" sap:VirtualizedContainerService.HintSize="2205.6,6194.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="Validate Emails with Changes" sap:VirtualizedContainerService.HintSize="2205.6,6396" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:Int32[]" Default="[{selection2Month, selection2Day, selection2Year}]" Name="selection2Date" />
             <Variable x:TypeArguments="x:Int32" Default="10" Name="selection3Month" />
@@ -147,8 +152,31 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadTextFile Content="[configString]" DisplayName="Read Text File" FileName="[Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf(&quot;\&quot;)) + &quot;\Robotic_Process_Automation\config.txt&quot;]" sap:VirtualizedContainerService.HintSize="2164,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="2164,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[configJson]" JsonString="[configString]" />
+          <ui:ReadTextFile Content="[newConfigString]" DisplayName="Read Text File" FileName="new_config.txt" sap:VirtualizedContainerService.HintSize="2164,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+          <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="2164,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[newConfigJson]" JsonString="[newConfigString]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="2164,161.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[exceptions]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[newConfigJson("\\exceptions.xlsx").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[outputExcel]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[newConfigJson("\\outputExcel.xlsx").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation To="{x:Null}" Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_7" />
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
           <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="2164,192.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
@@ -157,7 +185,7 @@
                     <OutArgument x:TypeArguments="x:Int32">[numOfDays]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(configJson("numOfDays").ToString)]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(newConfigJson("numOfDays").ToString)]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -165,7 +193,7 @@
                     <OutArgument x:TypeArguments="x:String">[month]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[configJson("month").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[newConfigJson("month").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -173,7 +201,7 @@
                     <OutArgument x:TypeArguments="x:String">[year]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[configJson("year").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[newConfigJson("year").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -181,7 +209,7 @@
                     <OutArgument x:TypeArguments="x:String">[filepathOfFileTracker]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[configJson("filepath").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[newConfigJson("filepath").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
               </scg:List>
