@@ -4,6 +4,6 @@
   "year": "2020",
   "filepath": "\\FOLDER\\Mainfolder\\Daily_Change_Monitoring\\",
   "outputExcel" : "\\outputExcel.xlsx",
-  "businessExceptions": "\\BusinessExceptions.xlsx"
+  "businessExceptions": "\\Exceptions.xlsx"
 }
 
