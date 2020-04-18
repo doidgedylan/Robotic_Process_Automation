@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>689.333333333333,3972.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>466,846.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -39,7 +39,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -63,18 +63,32 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence - PopulateSQLServerDatabase" sap:VirtualizedContainerService.HintSize="699.333333333333,3768" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Sequence - PopulateSQLServerDatabase" sap:VirtualizedContainerService.HintSize="476,682" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="657.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;--- PopulateSQLServerDatabase.xaml ---&quot;]" />
-    <TryCatch DisplayName="Try Catch - PopulateSQLServerDatabase" sap:VirtualizedContainerService.HintSize="657.333333333333,3541.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message - PopulateSQLServerDatabase Begin" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;--- PopulateSQLServerDatabase.xaml ---&quot;]" />
+    <TryCatch DisplayName="Try Catch - PopulateSQLServerDatabase Try/Catch" sap:VirtualizedContainerService.HintSize="434,455.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Variables>
+        <Variable x:TypeArguments="x:String" Name="exceptionsExcel" />
+        <Variable x:TypeArguments="x:String" Name="systemExceptionsSheetName" />
+        <Variable x:TypeArguments="sd:DataTable" Name="systemExceptions">
+          <Variable.Default>
+            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
+          </Variable.Default>
+        </Variable>
+      </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="Sequence - Try, PopulateSQLServerDatabase" sap:VirtualizedContainerService.HintSize="618.666666666667,3303.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="Sequence - PopulateSQLServerDatabase Try" sap:VirtualizedContainerService.HintSize="618.666666666667,3206.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="jsonText" />
             <Variable x:TypeArguments="njl:JObject" Name="jsonObj" />
@@ -102,9 +116,9 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="new_config.txt" sap:VirtualizedContainerService.HintSize="576.666666666667,80.6666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
           <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="576.666666666667,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[jsonText]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign - Arguments and json variables" sap:VirtualizedContainerService.HintSize="576.666666666667,281.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign DisplayName="Multiple Assign - Arguments and json variables" sap:VirtualizedContainerService.HintSize="576.666666666667,342.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
-              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">[excelConfigPath]</OutArgument>
@@ -161,23 +175,39 @@
                     <InArgument x:TypeArguments="x:String">[JsonObj.SelectToken("excelConfigSheetName").ToString]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[exceptionsExcel]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[JsonObj.SelectToken("exceptions").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[systemExceptionsSheetName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[JsonObj.SelectToken("systemExceptionsSheetName").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
           <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[excelConfig_DT]" DisplayName="Read Range - excelConfig" sap:VirtualizedContainerService.HintSize="576.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[excelConfigSheetName]" WorkbookPath="[excelConfigPath]" />
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[excelConfig_DT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576.666666666667,408.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[excelConfig_DT]" DisplayName="For Each Row - excelConfig_DT" sap:VirtualizedContainerService.HintSize="576.666666666667,408.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,256" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Body - excelConfig_DT For Each" sap:VirtualizedContainerService.HintSize="376,256" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="excelConfigKeyValues.Add(key, value)&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="excelConfigKeyValues.Add(key, value)&#xA;" DisplayName="Invoke code - Add to excelConfigKeyValues" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                     <ui:InvokeCode.Arguments>
                       <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="excelConfigKeyValues">[excelConfigKeyValues]</InOutArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="key">[row.ItemArray(0).ToString]</InArgument>
@@ -298,16 +328,6 @@
             </ui:ForEachRow.Body>
           </ui:ForEachRow>
           <ui:DatabaseConnect DatabaseConnection="[DBcon]" DisplayName="Connect - DBcon" sap:VirtualizedContainerService.HintSize="576.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="[&quot;Data Source=&quot; + server + &quot;;Initial Catalog=&quot; + database + &quot;;User ID=&quot; + dbLogin + &quot;;Password=&quot; + dbPassword]" />
-          <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Create the Email table if it doesn't already exist." CommandType="Text" DisplayName="Execute Non Query - Create Email Table" ExistingDbConnection="[DBcon]" sap:VirtualizedContainerService.HintSize="576.666666666667,118" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="If Not exists (Select * From sysobjects Where name='Email_2' and xtype='U')&#xA;    create table Email_2 (&#xA;&#x9;&#x9;Email_ID int not null identity primary key,&#xA;&#x9;&#x9;Email_Date Date not null,&#xA;        Email_Title varchar(100) Not null,&#xA;&#x9;&#x9;Reference_Type  varchar(25) Not null,&#xA;&#x9;&#x9;Reviewed varchar(25) Not null,&#xA;&#x9;&#x9;Server_Name varchar(25)&#xA;    )">
-            <ui:ExecuteNonQuery.Parameters>
-              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-            </ui:ExecuteNonQuery.Parameters>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:ExecuteNonQuery>
           <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[selectedDayRows_DT]" DisplayName="For each row - selectedDayRows_DT" sap:VirtualizedContainerService.HintSize="576.666666666667,427.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
@@ -342,19 +362,32 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="623.333333333333,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,283.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ActivityAction x:TypeArguments="s:Exception">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
+            <Sequence DisplayName="Sequence - PopulateSQLServerDatabase Catch" sap:VirtualizedContainerService.HintSize="376,212.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:BuildDataTable DataTable="[systemExceptions]" DisplayName="Build Data Table - systemExceptions" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Could not populate SQL Server Database..... &quot; + exception.ToString}]" DataTable="[systemExceptions]" DisplayName="Add Data Row - systemExceptions" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:AppendRange DataTable="[systemExceptions]" DisplayName="Append Range - systemExceptions" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[systemExceptionsSheetName]" WorkbookPath="[exceptionsExcel]" />
+      </TryCatch.Finally>
     </TryCatch>
   </Sequence>
 </Activity>

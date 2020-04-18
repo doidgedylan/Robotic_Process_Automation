@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1249.33333333333,9660</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1249.33333333333,9664.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -69,23 +69,27 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence - ValidateTicketMapping" sap:VirtualizedContainerService.HintSize="1259.33333333333,9495.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence DisplayName="Sequence - ValidateTicketMapping" sap:VirtualizedContainerService.HintSize="1259.33333333333,9500" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - ValidateTicketMapping Begins" sap:VirtualizedContainerService.HintSize="1217.33333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;--- ValidateTicketMapping.xaml workflow ---&quot;]" />
-    <TryCatch DisplayName="Try Catch - ValidateTicketMapping Try/Catch" sap:VirtualizedContainerService.HintSize="1217.33333333333,9270" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message - ValidateTicketMapping Begins" sap:VirtualizedContainerService.HintSize="1217.33333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;--- ValidateTicketMapping.xaml workflow ---&quot;]" />
+    <TryCatch DisplayName="Try Catch - ValidateTicketMapping Try/Catch" sap:VirtualizedContainerService.HintSize="1217.33333333333,9273.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="systemExceptionsSheetName" />
         <Variable x:TypeArguments="x:String" Name="exceptionsExcel" />
         <Variable x:TypeArguments="x:String" Name="businessExceptionsSheetName" />
-        <Variable x:TypeArguments="sd:DataTable" Name="systemExceptions" />
+        <Variable x:TypeArguments="sd:DataTable" Name="systemExceptions">
+          <Variable.Default>
+            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
+          </Variable.Default>
+        </Variable>
         <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="businessExceptions" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="ValidateTicketMapping Sequence - Try" sap:VirtualizedContainerService.HintSize="1178.66666666667,9035.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="ValidateTicketMapping Sequence - Try" sap:VirtualizedContainerService.HintSize="1178.66666666667,9036" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="findingsTracker_DT" />
             <Variable x:TypeArguments="x:Int32" Name="numOfDays_int" />
@@ -116,7 +120,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="new_config.txt" sap:VirtualizedContainerService.HintSize="1136.66666666667,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+          <ui:ReadTextFile Content="[jsonText]" DisplayName="Read Text File - Open config file" FileName="new_config.txt" sap:VirtualizedContainerService.HintSize="1136.66666666667,80.6666666666667" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
           <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1136.66666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[jsonText]" />
           <ui:MultipleAssign DisplayName="Multiple Assign - Arguments and json variables" sap:VirtualizedContainerService.HintSize="1136.66666666667,281.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
             <ui:MultipleAssign.AssignOperations>
