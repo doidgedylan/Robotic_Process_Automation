@@ -168,7 +168,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Pane  Ribbon'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[k(alt)]fea">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ef5e2910-bf63-42f8-b274-63c41de2c748" InformativeScreenshot="925130cbe672ec13982a1d594a55b2ec" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='outputExcel.xlsx - Excel' /&gt;&lt;uia cls='MsoCommandBar' helpText='Ribbon toolbar' /&gt;&lt;uia cls='NetUInetpane' name='Ribbon' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ef5e2910-bf63-42f8-b274-63c41de2c748" InformativeScreenshot="b8afa4ad418fc33024f209be9025689e" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='Exceptions.xlsx - Excel' /&gt;&lt;wnd cls='NetUIHWND' idx='2' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -181,7 +181,7 @@
                   <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'dialog Publish'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="%[k(enter)]">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9bd5c780-2d54-40d8-86b8-920647fab32f" InformativeScreenshot="1c326c8c775548cc216c6aa05751bc88" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Publish as PDF or XPS' /&gt;&lt;ctrl name='Publish as PDF or XPS' role='dialog' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9bd5c780-2d54-40d8-86b8-920647fab32f" InformativeScreenshot="93a359fcf55409b76174caff551a58d4" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Publish as PDF or XPS' /&gt;&lt;ctrl name='Publish as PDF or XPS' role='dialog' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
