@@ -1,0 +1,10 @@
+
+1. Start at the first row with a date of delta
+2. Get the File Name on Delta Report 
+3. Get server name by using substring on File Name on Delta Report
+4. Check if server name from File Name on Delta Report matches Server Name in that same row
+	a. If it matches, move on to step 5
+	b. If it doesn't match, add a row with the following string:
+row.item(3).ToString + row.item(0).ToString.Substring(0,10) +  "does not contain Server Name " + row.item(7).ToString
+	to the BusinessExceptions1 dataTable
+5. Repeat steps 2-4 for rest of the rows in the Findings Tracker
