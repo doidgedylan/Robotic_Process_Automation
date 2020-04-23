@@ -1,0 +1,10 @@
+Exceptions:
+
+1) IRTCA Member missing (1/9/2020)
+2) Invalid value for "Reference Type column" (1/13/2020)
+3) An email appears in the findings tracker that doesn't appear in the folers (1/24/2020)
+4) An email appears in the folders for one of the randomly selected days that doesn't appear in the FT (1/9/2020)
+5) missing_server server name doesn't appear in any emails for the day (1/13/2020)
+6) email with SN ticket - evidence is not in evidence location (1/22/2020)
+7) email with SN ticket - evidence location path is an invalid path (1/14/2020)
+8) email without SN ticket - evidence is not in  evidence location (1/22/2020)
