@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.listOfUniqueDays="[new List(Of int32)(new int32(){22, 24, 25})]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.listOfUniqueDays="[new List(Of int32)(new int32(){22, 24, 25})]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="listOfUniqueDays" Type="InArgument(scg:List(x:Int32))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1249.33333333333,9730.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1249.33333333333,7465.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -39,7 +39,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,14 +70,14 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence - ValidateTicketMapping" sap:VirtualizedContainerService.HintSize="1259.33333333333,9526" sap2010:WorkflowViewState.IdRef="Sequence_15">
+  <Sequence DisplayName="Sequence - ValidateChangesWithoutTicket" sap:VirtualizedContainerService.HintSize="1259.33333333333,7300.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - ValidateTicketMapping Begins" sap:VirtualizedContainerService.HintSize="1217.33333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;--- ValidateTicketMapping.xaml workflow ---&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Business Exceptions and System Exceptions are logged in the finally clause and then execution continues to validateChangesWithoutTicket " DisplayName="Try Catch - ValidateTicketMapping Try/Catch" sap:VirtualizedContainerService.HintSize="1217.33333333333,9300.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message - ValidateChangesWithoutTicket Begins" sap:VirtualizedContainerService.HintSize="1217.33333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;--- ValidateChangesWithoutTicket.xaml workflow ---&quot;]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Business Exceptions and System Exceptions are logged in the finally clause and then execution continues PopulateSQLServerDatabase" DisplayName="Try Catch - ValidateChangesWithoutTicket Try/Catch" sap:VirtualizedContainerService.HintSize="1217.33333333333,7075.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="systemExceptionsSheetName" />
         <Variable x:TypeArguments="x:String" Name="exceptionsExcel" />
@@ -91,18 +91,16 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="ValidateTicketMapping Sequence - Try" sap:VirtualizedContainerService.HintSize="1178.66666666667,9035.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="ValidateChangesWithoutTicket Sequence - Try" sap:VirtualizedContainerService.HintSize="1178.66666666667,6810" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="findingsTracker_DT" />
             <Variable x:TypeArguments="x:Int32" Name="numOfDays_int" />
-            <Variable x:TypeArguments="scg:List(x:Int32)" Default="[New System.Collections.Generic.List(Of Int32)]" Name="rowsTried" />
             <Variable x:TypeArguments="x:Int32" Name="monthNum_int" />
-            <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="uniqueChanges_DT" />
+            <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="exclusionChanges_DT" />
             <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="selectedDayRows_DT" />
-            <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="output_DT" />
-            <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
-            <Variable x:TypeArguments="sd:DataTable" Name="step4WrittenDetails" />
-            <Variable x:TypeArguments="sd:DataTable" Name="step4SignOff" />
+            <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="outputTable_DT" />
+            <Variable x:TypeArguments="sd:DataTable" Name="step5WrittenDetails" />
+            <Variable x:TypeArguments="sd:DataTable" Name="step5SignOff" />
             <Variable x:TypeArguments="sd:DataTable" Name="outputCells" />
             <Variable x:TypeArguments="x:Int32" Name="nextCell" />
             <Variable x:TypeArguments="x:String" Name="excelConfigPath" />
@@ -116,6 +114,27 @@
             <Variable x:TypeArguments="x:String" Name="numOfDays_string" />
             <Variable x:TypeArguments="x:String" Name="givenYear_string" />
             <Variable x:TypeArguments="x:String" Name="month_string" />
+            <Variable x:TypeArguments="x:Int32" Name="withEmailCount">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:Int32" />
+              </Variable.Default>
+            </Variable>
+            <Variable x:TypeArguments="x:Int32" Name="exclusionsCount">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:Int32" />
+              </Variable.Default>
+            </Variable>
+            <Variable x:TypeArguments="x:Int32" Name="otherCount">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:Int32" />
+              </Variable.Default>
+            </Variable>
+            <Variable x:TypeArguments="x:Int32" Name="totalCount">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:Int32" />
+              </Variable.Default>
+            </Variable>
+            <Variable x:TypeArguments="sd:DataTable" Name="outputTableHeader_DT" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -242,7 +261,7 @@
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
           <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[findingsTracker_DT]" DisplayName="Read Range - Create Data Table for Findings Tracker" sap:VirtualizedContainerService.HintSize="1136.66666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" PreserveFormat="True" SheetName="FindingsTracker" WorkbookPath="[changeMonitoringFilepath + &quot;Findings Tracker.xlsx&quot;]" />
-          <ui:FilterDataTable sap2010:Annotation.AnnotationText="Remove all rows that have dates which aren't from the specified month or year (i.e. all rows with a &quot;Date of Delta&quot; valuw which doesn't start with the audit month and doesn't end with the audit year)" DataTable="[findingsTracker_DT]" DisplayName="Filter Data Table - Filter Finders Tracker Data Table " FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="1136.66666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[findingsTracker_DT]" SelectColumnsMode="Keep">
+          <ui:FilterDataTable sap2010:Annotation.AnnotationText="Remove all rows that have dates which aren't from the specified month or year (i.e. all rows with a &quot;Date of Delta&quot; valuw which doesn't start with the audit month and doesn't end with the audit year)" DataTable="[findingsTracker_DT]" DisplayName="Filter Data Table - findingsTracker_DT" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="1136.66666666667,134.666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[findingsTracker_DT]" SelectColumnsMode="Keep">
             <ui:FilterDataTable.Filters>
               <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                 <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTSTARTSWITH">
@@ -250,7 +269,7 @@
                     <InArgument x:TypeArguments="x:String">["Date of Delta"]</InArgument>
                   </ui:FilterOperationArgument.Column>
                   <ui:FilterOperationArgument.Operand>
-                    <InArgument x:TypeArguments="x:String">[monthNum_int.toString + "/"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[monthNum_int.ToString + "/"]</InArgument>
                   </ui:FilterOperationArgument.Operand>
                 </ui:FilterOperationArgument>
                 <ui:FilterOperationArgument BooleanOperator="Or" Operator="NOTENDSWITH">
@@ -329,182 +348,107 @@
           </ui:ForEachRow>
           <Assign DisplayName="Assign - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
-              <OutArgument x:TypeArguments="sd:DataTable">[uniqueChanges_DT]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable">[exclusionChanges_DT]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="sd:DataTable">[findingsTracker_DT.Clone]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ClearDataTable DataTable="[uniqueChanges_DT]" DisplayName="Clear Data Table - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-          <While sap2010:Annotation.AnnotationText="Exit the while loop once |listOfUniqueDays| unique changes with a service now ticket have been selected, or exit once all the change options from the given days have been exhausted." DisplayName="While - Select random changes from the findings tracker for the given month and year" sap:VirtualizedContainerService.HintSize="1136.66666666667,1418.66666666667" sap2010:WorkflowViewState.IdRef="While_1">
-            <While.Variables>
-              <Variable x:TypeArguments="x:Int32" Name="randomRow" />
-              <Variable x:TypeArguments="scg:List(x:Int32)" Default="[New System.Collections.Generic.List(Of Int32)]" Name="uniqueDaysSelected" />
-            </While.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <While.Condition>
-              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="uniqueChanges_DT.Rows.Count &lt; listOfUniqueDays.Count And rowsTried.Count &lt; selectedDayRows_DT.Rows.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
-            </While.Condition>
-            <Sequence DisplayName="Sequence - Select random changes from the findings tracker for the given month and year" sap:VirtualizedContainerService.HintSize="714,1212.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <Assign sap2010:Annotation.AnnotationText="generate random row number from the dataTable" DisplayName="Assign - randomRow" sap:VirtualizedContainerService.HintSize="672,105.333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Int32">[randomRow]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Int32">[new Random().Next(0, selectedDayRows_DT.Rows.Count)]</InArgument>
-                </Assign.Value>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </Assign>
-              <If sap2010:Annotation.AnnotationText="If the random row has already been tried, do nothing. Otherwise, add the random row number to the rowsTried list and check to see if the random row has a service now ticket associated with it." Condition="[rowsTried.Contains(randomRow)]" DisplayName="If - rowsTried.Contains(randomRow)" sap:VirtualizedContainerService.HintSize="672,975.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If.Else>
-                  <Sequence DisplayName="Sequence - rowsTried.Contains(randomRow) - Else" sap:VirtualizedContainerService.HintSize="526,779.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="changeHasTicket" />
-                      <Variable x:TypeArguments="x:String" Name="randRowDate" />
-                    </Sequence.Variables>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <AddToCollection x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="If randomRow hasn't been tried yet, add it to the rowsTried collection" Collection="[rowsTried]" DisplayName="Add To Collection - rowsTried" sap:VirtualizedContainerService.HintSize="484,82" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[randomRow]">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </AddToCollection>
-                    <Assign sap2010:Annotation.AnnotationText="Get the value from the &quot;Date of Delta&quot; column of the current random row." DisplayName="Assign - randRowDate" sap:VirtualizedContainerService.HintSize="484,105.333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[randRowDate]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[selectedDayRows_DT.Rows(randomRow)("Date of Delta").ToString]</InArgument>
-                      </Assign.Value>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Assign>
-                    <If sap2010:Annotation.AnnotationText="The first condition checks to see if the &quot;Reference Type&quot; value of the random row is a Service Now ticket. The second condition checks to see if a random Service Now ticket has already been selected for the date given in the &quot;Date of Delta&quot; column. If the first condition is true and the second condition is false, then the random row is added to a data table (uniqueChanges_DT)" Condition="[Regex.IsMatch(selectedDayRows_DT.Rows(randomRow)(&quot;Reference Type&quot;).ToString, &quot;^CHR\d+&quot;) And Not uniqueDaysSelected.Contains(convert.ToInt32(randRowDate.Substring(randRowDate.IndexOf(&quot;/&quot;), randRowDate.LastIndexOf(&quot;/&quot;)).Trim({&quot;/&quot;c})))]" DisplayName="If - changeHasTicket" sap:VirtualizedContainerService.HintSize="484,420" sap2010:WorkflowViewState.IdRef="If_3">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <Sequence DisplayName="Sequence - changeHasTicket - Then" sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[selectedDayRows_DT.Rows(randomRow).ItemArray]" DataTable="[uniqueChanges_DT]" DisplayName="Add Data Row - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                          <AddToCollection x:TypeArguments="x:Int32" Collection="[uniqueDaysSelected]" DisplayName="Add To Collection - uniqueDaysSelected" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[convert.ToInt32(randRowDate.Substring(randRowDate.IndexOf(&quot;/&quot;), randRowDate.LastIndexOf(&quot;/&quot;)).Trim({&quot;/&quot;c}))]" />
-                        </Sequence>
-                      </If.Then>
-                    </If>
-                  </Sequence>
-                </If.Else>
-              </If>
-            </Sequence>
-          </While>
-          <Assign DisplayName="Assign - output_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
-            <Assign.To>
-              <OutArgument x:TypeArguments="sd:DataTable">[output_DT]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="sd:DataTable">[uniqueChanges_DT.Clone]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:ClearDataTable DataTable="[output_DT]" DisplayName="Clear Data Table - output_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_3" />
-          <ui:FilterDataTable sap2010:Annotation.AnnotationText="Only keep the &quot;Date of Delta&quot; and &quot;Reference Type&quot; rows as these are the only values from the findings tracker which will be written to the output.xlsx file" DataTable="[output_DT]" DisplayName="Filter Data Table - output_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,118.666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[output_DT]" SelectColumnsMode="Keep">
-            <ui:FilterDataTable.Filters>
-              <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
-              </scg:List>
-            </ui:FilterDataTable.Filters>
-            <ui:FilterDataTable.SelectColumns>
-              <scg:List x:TypeArguments="InArgument" Capacity="4">
-                <InArgument x:TypeArguments="x:String">["Date Of Delta"]</InArgument>
-                <InArgument x:TypeArguments="x:String">["Reference Type"]</InArgument>
-              </scg:List>
-            </ui:FilterDataTable.SelectColumns>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:FilterDataTable>
-          <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Empty" DataTable="[output_DT]" DisplayName="Add Data Column - Empty column" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_5" />
-          <InvokeMethod sap2010:Annotation.AnnotationText="Order the ouptut_DT columns to ensure the table for step 4 of the output.slsx file is correct" DisplayName="Invoke Method - SetOrdinal, Empty" sap:VirtualizedContainerService.HintSize="1136.66666666667,196" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="SetOrdinal">
-            <InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="sd:DataColumn">[output_DT.Columns("Empty")]</InArgument>
-            </InvokeMethod.TargetObject>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <InArgument x:TypeArguments="x:Int32">1</InArgument>
-          </InvokeMethod>
-          <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Selection Date N" DataTable="[output_DT]" DisplayName="Add Data Column - Selection Date N" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_6" />
-          <InvokeMethod sap2010:Annotation.AnnotationText="Order the ouptut_DT columns to ensure the table for step 4 of the output.slsx file is correct" DisplayName="Invoke Method - SetOrdinal, Selection Date N" sap:VirtualizedContainerService.HintSize="1136.66666666667,196" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="SetOrdinal">
-            <InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="sd:DataColumn">[output_DT.Columns("Selection Date N")]</InArgument>
-            </InvokeMethod.TargetObject>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <InArgument x:TypeArguments="x:Int32">1</InArgument>
-          </InvokeMethod>
-          <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Appropriately Mapped" DataTable="[output_DT]" DisplayName="Add Data Column - Appropriatly Mapped" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_7" />
-          <InvokeMethod DisplayName="Invoke Method - SetOrdinal, Appropriatly Mapped" sap:VirtualizedContainerService.HintSize="1136.66666666667,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="SetOrdinal">
-            <InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="sd:DataColumn">[output_DT.Columns("Appropriately Mapped")]</InArgument>
-            </InvokeMethod.TargetObject>
-            <InArgument x:TypeArguments="x:Int32">4</InArgument>
-          </InvokeMethod>
-          <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Empty 2" DataTable="[output_DT]" DisplayName="Add Data Column - Empty column" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_8" />
-          <InvokeMethod sap2010:Annotation.AnnotationText="Order the ouptut_DT columns to ensure the table for step 4 of the output.slsx file is correct" DisplayName="Invoke Method - SetOrdinal, Empty" sap:VirtualizedContainerService.HintSize="1136.66666666667,196" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="SetOrdinal">
-            <InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="sd:DataColumn">[output_DT.Columns("Empty 2")]</InArgument>
-            </InvokeMethod.TargetObject>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <InArgument x:TypeArguments="x:Int32">1</InArgument>
-          </InvokeMethod>
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[uniqueChanges_DT]" DisplayName="For Each Row - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,1878.66666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_11">
+          <ui:ClearDataTable DataTable="[exclusionChanges_DT]" DisplayName="Clear Data Table - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+          <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For each row in the selectedDayRows_DT (the datatable containing all rows from the findings tracker of the given audit month and year) if the row has a reference type of &quot;Exclusion&quot;, add it to the given ExclusionChanges_DT" DataTable="[selectedDayRows_DT]" DisplayName="For Each Row - selectedDayRows_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,786.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_13">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="1086,1727.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <Sequence DisplayName="Body - selectedDayRows_DT" sap:VirtualizedContainerService.HintSize="962,591.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign - increment totalCount" sap:VirtualizedContainerService.HintSize="920,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[totalCount]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[totalCount + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If sap2010:Annotation.AnnotationText="If the Reference Type value of the current row is &quot;Exclusion&quot;, then add it to the exclusionChanges_DT. Otherwise do nothing" Condition="[row(&quot;Reference Type&quot;).toString.Equals(&quot;Exclusion&quot;)]" DisplayName="If - row(&quot;Reference Type&quot;).toString.Equals(&quot;Exclusion&quot;)" sap:VirtualizedContainerService.HintSize="920,398" sap2010:WorkflowViewState.IdRef="If_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Sequence - Reference Type is Exclusion" sap:VirtualizedContainerService.HintSize="304,215.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign - increment exclusionsCount" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[exclusionsCount]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[exclusionsCount + 1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[row.ItemArray]" DataTable="[exclusionChanges_DT]" DisplayName="Add Data Row - uniqueChanges_DT" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddDataRow_9" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[Regex.IsMatch(row(&quot;Reference Type&quot;).ToString, &quot;^CHR\d+&quot;)]" DisplayName="If - Regex.IsMatch(row(&quot;Reference Type&quot;).ToString, &quot;^CHR\d+&quot;)" sap:VirtualizedContainerService.HintSize="570,213.333333333333" sap2010:WorkflowViewState.IdRef="If_11">
+                        <If.Then>
+                          <Assign DisplayName="Assign - increment withEmailCount" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[withEmailCount]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[withEmailCount + 1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <Assign DisplayName="Assign - incrementOtherCount" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_20">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[otherCount]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[otherCount + 1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Else>
+                      </If>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachRow>
+          <ui:BuildDataTable DataTable="[outputTableHeader_DT]" DisplayName="Build Data Table - outputTableHeader" sap:VirtualizedContainerService.HintSize="1136.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_6" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Empty&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;0&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Empty2&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;0&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;With_x0020_Email&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Exclusions&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Other&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Total&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;With_x0020_Email&gt;With Email&lt;/With_x0020_Email&gt;&#xD;&#xA;    &lt;Exclusions&gt;Exclusions&lt;/Exclusions&gt;&#xD;&#xA;    &lt;Other&gt;Other&lt;/Other&gt;&#xD;&#xA;    &lt;Total&gt;Total&lt;/Total&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:BuildDataTable sap2010:Annotation.AnnotationText="Build the data table for the output table containing the counts for with email, exclusions, other, and total" DataTable="[outputTable_DT]" DisplayName="Build Data Table - outputTable_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,102.666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_7" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Empty&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;0&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;With_x0020_Email&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Exclusions&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Other&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Total&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:BuildDataTable>
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Total Changes&quot;, &quot;&quot;, withEmailCount, exclusionsCount, otherCount, totalCount}]" DataTable="[outputTable_DT]" DisplayName="Add Data Row - outputTable_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,22" sap2010:WorkflowViewState.IdRef="AddDataRow_10" />
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[exclusionChanges_DT]" DisplayName="For Each Row - exclusionChanges_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,1639.33333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_11">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body - exclusionChanges_DT" sap:VirtualizedContainerService.HintSize="1086,1488" sap2010:WorkflowViewState.IdRef="Sequence_19">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="isLocationDirectory" />
                     <Variable x:TypeArguments="x:Boolean" Default="False" Name="pathIsInvalid" />
@@ -514,19 +458,6 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap2010:Annotation.AnnotationText="This count variable is for displaying the &quot;Selection Date N&quot; column values such that 'N' is replaced with the value of count." DisplayName="Assign - count" sap:VirtualizedContainerService.HintSize="1044,137.333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
-                    </Assign.Value>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Assign>
                   <TryCatch sap2010:Annotation.AnnotationText="This checks if the conclusion evidence location is a directory or not. If the path given by the &quot;conclusion evidence location&quot; value is not a valid path, then an exception is caught pathIsInvalid is set to True." DisplayName="Try Catch - isLocationDirectory" sap:VirtualizedContainerService.HintSize="1044,356" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -574,14 +505,14 @@
                       </Catch>
                     </TryCatch.Catches>
                   </TryCatch>
-                  <If sap2010:Annotation.AnnotationText="If the path given in the &quot;Conclusion Evidence Location&quot; is not an invalid path, ensure the evidence appears at the location. If the path is invalid, log a business exception stating that the path is invalid.&quot;" Condition="[Not pathIsInvalid]" DisplayName="If - Not pathIsInvalid" sap:VirtualizedContainerService.HintSize="1044,1062" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If sap2010:Annotation.AnnotationText="If the path given in the &quot;Conclusion Evidence Location&quot; is not an invalid path, ensure the evidence appears at the location. If the path is invalid, log a business exception stating that the path is invalid.&quot;" Condition="[Not pathIsInvalid]" DisplayName="If - Not pathIsInvalid" sap:VirtualizedContainerService.HintSize="1044,1000" sap2010:WorkflowViewState.IdRef="If_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Sequence - Not pathIsInvalid - Then" sap:VirtualizedContainerService.HintSize="756,866" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <Sequence DisplayName="Sequence - Not pathIsInvalid - Then" sap:VirtualizedContainerService.HintSize="756,804" sap2010:WorkflowViewState.IdRef="Sequence_20">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:Boolean" Name="evidenceExistsInLocation" />
                         </Sequence.Variables>
@@ -615,38 +546,33 @@
                             </ui:PathExists>
                           </If.Else>
                         </If>
-                        <If sap2010:Annotation.AnnotationText="If the conclusion evidence does appear in the given location, state that it is appropriately mapped. If the conclusion evidence does not appear at the given location, state that it is not appropriately mapped and log a business exception." Condition="[evidenceExistsInLocation]" DisplayName="If - evidenceExistsInLocation" sap:VirtualizedContainerService.HintSize="714,388" sap2010:WorkflowViewState.IdRef="If_7">
+                        <If sap2010:Annotation.AnnotationText="If the conclusion evidence does appear in the given location, do nothing. If the conclusion evidence does not appear at the given location, state that it is not appropriately mapped and log a business exception." Condition="[evidenceExistsInLocation]" DisplayName="If - evidenceExistsInLocation" sap:VirtualizedContainerService.HintSize="714,326" sap2010:WorkflowViewState.IdRef="If_7">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Appropriately Mapped Name" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
-                          </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Sequence - evidenceExistsInLocation - Else" sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <Sequence DisplayName="Sequence - evidenceExistsInLocation - Else" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_22">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;The file: &quot; + row(&quot;Conclusion Evidence Name&quot;).ToString + &quot; does not appear at &quot; + row(&quot;Conclusion Evidence Location&quot;).ToString + &quot; for the change: &quot;+ row(&quot;File Name on Delta Report&quot;).toString + &quot; made on &quot; + row(&quot;Date of Delta&quot;).ToString}]" DataTable="[businessExceptions]" DisplayName="Add Data Row - businessExceptions" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
-                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Not Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Not Appropriately Mapped Name" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
                             </Sequence>
                           </If.Else>
                         </If>
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Sequence - Not pathIsInvalid - Else" sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <Sequence DisplayName="Sequence - Not pathIsInvalid - Else" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_27">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;The Conclusion Evidence Location path: &quot; + row(&quot;Conclusion Evidence Location&quot;).toString + &quot; for the change: &quot;+ row(&quot;File Name on Delta Report&quot;).toString + &quot; made on &quot; + row(&quot;Date of Delta&quot;).ToString +&quot; is not a valid path.&quot;}]" DataTable="[businessExceptions]" DisplayName="Add Data Row - businessExceptions" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_7" />
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;,&quot;Selection &quot; + count.ToString + &quot; (date)&quot;,&quot;&quot;,row(&quot;Date of Delta&quot;),row(&quot;Reference Type&quot;),&quot;Not Appropiately Mapped&quot;}]" DataTable="[output_DT]" DisplayName="Add Data Row - Not Appropriately Mapped Name" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
                       </Sequence>
                     </If.Else>
                   </If>
@@ -654,8 +580,8 @@
               </ActivityAction>
             </ui:ForEachRow.Body>
           </ui:ForEachRow>
-          <ui:BuildDataTable DataTable="[step4WrittenDetails]" DisplayName="Build Data Table - step4WrittenDetails" sap:VirtualizedContainerService.HintSize="1136.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1 /&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;4. From the Findings Tracker tab, haphazardly select five changes that occurred (and have a &lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;ServiceNow ticket identified). For each change, ensure the ServiceNow ticker referenced &lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;appropriately maps to the identified change.&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1 /&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;a. The ServiceNow ticket names can be found in the 'Conclusion Evidence Name' column located in &lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;the Findings Tracker tab.&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;b. Access the Remediation and Justification Evidence for any changes at: \\MainFolder&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;\\Remediation_or_Justification Evidence&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-          <ui:AppendRange DataTable="[step4WrittenDetails]" DisplayName="Append Range - step4WrittenDetails" sap:VirtualizedContainerService.HintSize="1136.66666666667,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="Report" WorkbookPath="[outputExcel]" />
+          <ui:BuildDataTable DataTable="[step5WrittenDetails]" DisplayName="Build Data Table - step5WrittenDetails" sap:VirtualizedContainerService.HintSize="1136.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1 /&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;5. From the findings tab, identify all line items which do not have a corresponding ServiceNow ticket.&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;For each item, review all supporting conclusion evidence for appropriateness of change occuring&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;without a ServiceNow ticket (e.g. alternative documentation exists, false positive change, etc.).&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;a. The ServiceNow ticket names can be found in the 'Conclusion Evidence Name' column located in&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;the Findings Tracker tab.&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;b. Access the Remediation and Justification Evidence for any changes at:&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;\\MainFolder\\Remediation_or_Justification Evidence&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:AppendRange DataTable="[step5WrittenDetails]" DisplayName="Append Range - step5WrittenDetails" sap:VirtualizedContainerService.HintSize="1136.66666666667,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="Report" WorkbookPath="[outputExcel]" />
           <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[outputCells]" DisplayName="Read Range - output.xlsx" sap:VirtualizedContainerService.HintSize="1136.66666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Report" WorkbookPath="[outputExcel]" />
           <Assign sap2010:Annotation.AnnotationText="Finds the number of the cells occupied in the output.xlsx file so far in order to ensure a space is placed between the written description and the output table." DisplayName="Assign - nextCell" sap:VirtualizedContainerService.HintSize="1136.66666666667,137.333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
             <Assign.To>
@@ -670,37 +596,16 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Append the contents of the output_DT table as specified for step 4 of the Report tab of the output.xlsx file" DataTable="[output_DT]" DisplayName="Write Range - output_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,174.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Report" StartingCell="[&quot;A&quot; + nextCell.ToString]" WorkbookPath="[outputExcel]">
+          <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Append the contents of the output_DT table as specified for step 4 of the Report tab of the output.xlsx file" DataTable="[outputTableHeader_DT]" DisplayName="Write Range - outputTableHeader_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,174.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Report" StartingCell="[&quot;A&quot; + nextCell.ToString]" WorkbookPath="[outputExcel]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:WriteRange>
-          <ui:BuildDataTable DataTable="[step4SignOff]" DisplayName="Build Data Table - step4SignOff" sap:VirtualizedContainerService.HintSize="1136.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Column1 /&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Column1&gt;Step 4 Review Sign off ___________&lt;/Column1&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Column1 xml:space=&quot;preserve&quot;&gt; &lt;/Column1&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Column1 xml:space=&quot;preserve&quot;&gt; &lt;/Column1&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
-          <ui:AppendRange DataTable="[step4SignOff]" DisplayName="Append Range - step4SignOff" sap:VirtualizedContainerService.HintSize="1136.66666666667,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_3" SheetName="Report" WorkbookPath="[outputExcel]" />
-          <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="Make sure columns D and E in the output excel file are autofit." DisplayName="Excel Application Scope - Adjust Columns" sap:VirtualizedContainerService.HintSize="1136.66666666667,318" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[outputExcel]">
-            <ui:ExcelApplicationScope.Body>
-              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do - Adjust Columns" sap:VirtualizedContainerService.HintSize="376,178.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="columnAdjust.txt" DisplayName="Invoke VBA - Adjust Columns" EntryMethodName="ColumnWidth" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ExcelApplicationScope.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:ExcelApplicationScope>
+          <ui:AppendRange DataTable="[outputTable_DT]" DisplayName="Append Range - outputTable_DT" sap:VirtualizedContainerService.HintSize="1136.66666666667,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_10" SheetName="Report" WorkbookPath="[outputExcel]" />
+          <ui:BuildDataTable DataTable="[step5SignOff]" DisplayName="Build Data Table - step5SignOff" sap:VirtualizedContainerService.HintSize="1136.66666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1 /&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1 /&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Column1&gt;Step 5 Review Sign off ___________&lt;/Column1&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:AppendRange DataTable="[step5SignOff]" DisplayName="Append Range - step5SignOff" sap:VirtualizedContainerService.HintSize="1136.66666666667,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_3" SheetName="Report" WorkbookPath="[outputExcel]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -715,7 +620,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Sequence - ValidateTicketMapping Catch" sap:VirtualizedContainerService.HintSize="376,212.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+            <Sequence DisplayName="Sequence - ValidateChangesWithoutTicket Catch" sap:VirtualizedContainerService.HintSize="376,212.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -728,7 +633,7 @@
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Sequence - ValidateTicketMapping Finally" sap:VirtualizedContainerService.HintSize="376,494.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
+        <Sequence DisplayName="Sequence - ValidateChangesWithoutTicket Finally" sap:VirtualizedContainerService.HintSize="376,494.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -736,7 +641,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:AppendRange DataTable="[businessExceptions]" DisplayName="Append Range - businessExceptions" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_8" SheetName="[businessExceptionsSheetName]" WorkbookPath="[exceptionsExcel]" />
           <ui:AppendRange DataTable="[systemExceptions]" DisplayName="Append Range - systemExceptions" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_9" SheetName="[systemExceptionsSheetName]" WorkbookPath="[exceptionsExcel]" />
-          <ui:LogMessage DisplayName="Log Message - testing" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;--- ValidateTicketMapping End ---&quot;]" />
+          <ui:LogMessage DisplayName="Log Message - testing" sap:VirtualizedContainerService.HintSize="334,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;--- ValidateChangesWithoutTicket End ---&quot;]" />
         </Sequence>
       </TryCatch.Finally>
     </TryCatch>
