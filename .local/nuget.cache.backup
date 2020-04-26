@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 {
   "version": 1,
   "dgSpecHash": "3e3jlqffO9u7fLPzHHSnfTlb3llGzuuDwu7dIWX01ceFUeQJm2In/uWjEsGJZcxjMd2jWGv8W6IlRzEkhbVO2Q==",
   "success": true
+=======
+{
+  "version": 1,
+  "dgSpecHash": "3e3jlqffO9u7fLPzHHSnfTlb3llGzuuDwu7dIWX01ceFUeQJm2In/uWjEsGJZcxjMd2jWGv8W6IlRzEkhbVO2Q==",
+  "success": true
+>>>>>>> c526400d6491d6885f56d42805a793b6ff8f25c8
 }

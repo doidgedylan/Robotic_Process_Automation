@@ -135,11 +135,7 @@
             <Variable x:TypeArguments="sd:DataTable" Default="[new System.Data.DataTable]" Name="businessExceptionsDataTable" />
             <Variable x:TypeArguments="s:Array" Name="dataArray" />
             <Variable x:TypeArguments="x:Object" Name="dateITRCAError" />
-            <Variable x:TypeArguments="x:Boolean" Name="serverNameMatched">
-              <Variable.Default>
-                <Literal x:TypeArguments="x:Boolean" />
-              </Variable.Default>
-            </Variable>
+            <Variable x:TypeArguments="x:Boolean" Default="False" Name="serverNameMatched" />
             <Variable x:TypeArguments="x:Object" Name="dateServerNameError" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
@@ -224,7 +220,7 @@
               <InOutArgument x:TypeArguments="x:Boolean" x:Key="padded_result">[padded_month_value]</InOutArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
-          <ui:BuildDataTable DataTable="[businessExceptionsDataTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="2662,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_5" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column2&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName /&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+          <ui:BuildDataTable DataTable="[businessExceptionsDataTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="2662,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_5" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Column2&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;" />
           <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="The filepath is obtained from the config file." DisplayName="Obtain Data from Findings Tracker" sap:VirtualizedContainerService.HintSize="2662,5024" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[Environment.CurrentDirectory + filepath + &quot;\\Findings Tracker.xlsx&quot;]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
@@ -497,15 +493,15 @@
                               <OutArgument x:TypeArguments="ui:GenericValue">[currentCellValue]</OutArgument>
                             </ui:ExcelReadCell.Result>
                           </ui:ExcelReadCell>
-                          <If sap2010:Annotation.AnnotationText="If currentCellValue has no value, a business exception occurred." Condition="[isNothing(currentCellValue)]" sap:VirtualizedContainerService.HintSize="484,238" sap2010:WorkflowViewState.IdRef="If_21">
+                          <If sap2010:Annotation.AnnotationText="If currentCellValue has no value, a business exception occurred." Condition="[currentCellValue.ToString = &quot;Exclusion&quot; or currentCellValue.ToString.Substring(0, 3) = &quot;CHR&quot;]" sap:VirtualizedContainerService.HintSize="484,238" sap2010:WorkflowViewState.IdRef="If_21">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If.Then>
+                            <If.Else>
                               <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;CHANGES - SOX...eml does not have valid Reference Type in column I&quot;}]" DataTable="[businessExceptionsDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                            </If.Then>
+                            </If.Else>
                           </If>
                           <Assign DisplayName="Increment rowCounter" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                             <Assign.To>
@@ -544,7 +540,11 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExcelReadCell Result="{x:Null}" Cell="[&quot;M&quot; + rowCounter.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="563,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="FindingsTracker" />
+                          <ui:ExcelReadCell Cell="[&quot;M&quot; + rowCounter.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="563,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="FindingsTracker">
+                            <ui:ExcelReadCell.Result>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[currentCellValue]</OutArgument>
+                            </ui:ExcelReadCell.Result>
+                          </ui:ExcelReadCell>
                           <If Condition="[isNothing(currentCellValue)]" sap:VirtualizedContainerService.HintSize="563,552" sap2010:WorkflowViewState.IdRef="If_22">
                             <If.Then>
                               <Sequence sap:VirtualizedContainerService.HintSize="418,405" sap2010:WorkflowViewState.IdRef="Sequence_52">
