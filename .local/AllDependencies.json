@@ -2023,15 +2023,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dylan\\.nuget\\packages\\": {}
+    "C:\\Users\\natha\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Robotic_Process_Automation",
       "projectName": "Robotic_Process_Automation",
-      "projectPath": "C:\\Users\\Dylan\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
-      "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dylan\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
+      "projectPath": "C:\\Users\\natha\\Documents\\UiPath\\Robotic_Process_Automation\\.local",
+      "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\natha\\Documents\\UiPath\\Robotic_Process_Automation\\.local"
     },
     "frameworks": {
       "net461": {
