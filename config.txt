@@ -1,9 +1,0 @@
-{
-  "numOfDays": "2",
-  "month": "January", 
-  "year": "2020",
-  "filepath": "\\FOLDER\\Mainfolder\\Daily_Change_Monitoring\\",
-  "outputExcel" : "\\outputExcel.xlsx",
-  "businessExceptions": "\\Exceptions.xlsx"
-}
-
