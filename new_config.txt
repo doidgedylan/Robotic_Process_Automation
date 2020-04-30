@@ -1,7 +1,7 @@
 {	
   "outputExcel" : "outputExcel.xlsx",
-  "server" : "OSU_PC_SHANE",
-  "database" : "test",
+  "server" : "LAPTOP-NT5DORLB",
+  "database" : "SOXCM2",
   "dbLogin" : "admin",
   "dbPassword" : "RPAcapstone",
   "excelConfig" : "excelConfig.xlsx",
